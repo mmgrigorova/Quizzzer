@@ -4,7 +4,7 @@ Quizzzer is a console trivia game developed by team Loki. This is the first proj
 
 ## Gameplay
 
-### Player starts the game
+Player starts the game
 Game prompts the player for their name (NOTE: we need this here to check if we can upgrade user or not.)
 The Welcome sceen allows picking one of the following options:
   * Check if Player has above 100 points and Upgrade them
