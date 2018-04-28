@@ -27,23 +27,7 @@ public class GameLauncher {
                 System.exit(0);
         }
     }
-    private void showGameName() {
-        System.out.printf("   _    _    _    _    _    _    _    _  \n" +
-                "  / \\  / \\  / \\  / \\  / \\  / \\  / \\  / \\ \n" +
-                " ( Q )( U )( I )( Z )( Z )( Z )( E )( R )\n" +
-                "  \\_/  \\_/  \\_/  \\_/  \\_/  \\_/  \\_/  \\_/ \n");
 
-
-        for (int i = 0; i < 40; i++) {
-            System.out.printf("-");
-        }
-        System.out.println();
-        System.out.println("QUIZZZER GAME");
-        for (int i = 0; i < 40; i++) {
-            System.out.printf("-");
-        }
-        System.out.println();
-    }
     private void startGame() {
         clearScreen();
         System.out.println("Please select game mode:\n");
@@ -62,6 +46,7 @@ public class GameLauncher {
 
             Game game = new SinglePlayerGame(category, GameMode.SINGLE, playerName);
         } else {
+            //TODO see taking this logic into a method
             QuestionCategory category = getCategory();
             Game game = new DoublePlayerGame(category, GameMode.DOUBLE);
         }
@@ -122,6 +107,25 @@ public class GameLauncher {
 //            //  Handle any exceptions.
 //        }
     }
+    private void showGameName() {
+        System.out.printf("   _    _    _    _    _    _    _    _  \n" +
+                "  / \\  / \\  / \\  / \\  / \\  / \\  / \\  / \\ \n" +
+                " ( Q )( U )( I )( Z )( Z )( Z )( E )( R )\n" +
+                "  \\_/  \\_/  \\_/  \\_/  \\_/  \\_/  \\_/  \\_/ \n");
+
+
+        for (int i = 0; i < 40; i++) {
+            System.out.printf("-");
+        }
+        System.out.println();
+        System.out.println("QUIZZZER GAME");
+        for (int i = 0; i < 40; i++) {
+            System.out.printf("-");
+        }
+        System.out.println();
+    }
+
+    //TODO Check rendering in a table: https://stackoverflow.com/questions/15215326/how-can-i-create-table-using-ascii-in-a-console
 
     public static void main(String[] args) {
         GameLauncher launcher = new GameLauncher();
