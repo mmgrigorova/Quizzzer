@@ -28,6 +28,12 @@ public class GameLauncher {
         }
     }
     private void showGameName() {
+        System.out.printf("   _    _    _    _    _    _    _    _  \n" +
+                "  / \\  / \\  / \\  / \\  / \\  / \\  / \\  / \\ \n" +
+                " ( Q )( U )( I )( Z )( Z )( Z )( E )( R )\n" +
+                "  \\_/  \\_/  \\_/  \\_/  \\_/  \\_/  \\_/  \\_/ \n");
+
+
         for (int i = 0; i < 40; i++) {
             System.out.printf("-");
         }
@@ -53,7 +59,7 @@ public class GameLauncher {
             //testing only TODO to remove the souts
             System.out.println("Selected category: " + category);
             System.out.println(GameMode.SINGLE);
-            
+
             Game game = new SinglePlayerGame(category, GameMode.SINGLE, playerName);
         } else {
             Game game = new DoublePlayerGame();
@@ -91,9 +97,9 @@ public class GameLauncher {
     private static void clearScreen() {
 
 //        System.out.print('\u000C');
-//        for (int i = 0; i < 25; i++) {
-//            System.out.println();
-//        }
+        for (int i = 0; i < 5; i++) {
+            System.out.println();
+        }
 //        System.out.print("\033[H\033[2J");
 //        System.out.flush();
 
@@ -114,6 +120,12 @@ public class GameLauncher {
 //        {
 //            //  Handle any exceptions.
 //        }
+    }
+
+    public static void main(String[] args) {
+        GameLauncher launcher = new GameLauncher();
+        launcher.start();
+
     }
 
 }
