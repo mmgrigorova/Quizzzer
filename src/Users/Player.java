@@ -19,6 +19,10 @@ public class Player extends User implements Punishable {
 		this.badges = badges;
 	}
 
+	public void increasePoints(int pointsToAdd){
+		points += pointsToAdd;
+	}
+
 	@Override
 	public void decreasePoints(int pointsToDeduct) {
 		if (points <= pointsToDeduct) {
@@ -27,6 +31,5 @@ public class Player extends User implements Punishable {
 			points -= pointsToDeduct;
 		}
 	}
-	
 	
 }
