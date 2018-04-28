@@ -1,5 +1,9 @@
+import Game.GameLauncher;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello World - Test Quizzzer Main class");
+        GameLauncher launcher = new GameLauncher();
+        launcher.start();
+
     }
 }
