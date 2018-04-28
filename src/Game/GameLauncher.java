@@ -62,7 +62,8 @@ public class GameLauncher {
 
             Game game = new SinglePlayerGame(category, GameMode.SINGLE, playerName);
         } else {
-            Game game = new DoublePlayerGame();
+            QuestionCategory category = getCategory();
+            Game game = new DoublePlayerGame(category, GameMode.DOUBLE);
         }
     }
 

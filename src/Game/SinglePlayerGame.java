@@ -3,7 +3,7 @@ package Game;
 public class SinglePlayerGame extends Game {
     private QuestionList questionList;
 
-    public SinglePlayerGame(QuestionCategory questionCategory, String playerName) {
+    public SinglePlayerGame(QuestionCategory questionCategory, GameMode single, String playerName) {
         super(GameMode.SINGLE, questionCategory);
         if (questionCategory.equals(QuestionCategory.RANDOM)){
             questionList = new RandomQuestionList(QuestionType.CLOSED);
