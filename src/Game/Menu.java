@@ -25,4 +25,5 @@ public class Menu {
     public int getMenuSize(){
         return menuSize;
     }
+
 }

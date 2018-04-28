@@ -26,8 +26,6 @@ public class GameLauncher {
             case 3:
                 System.exit(0);
         }
-
-
     }
     private void showGameName() {
         for (int i = 0; i < 40; i++) {
@@ -42,27 +40,48 @@ public class GameLauncher {
     }
     private void startGame() {
         clearScreen();
-        System.out.println("Please select game mode:");
+        System.out.println("Please select game mode:\n");
         Menu gameModes = new Menu("Single Player", "Double Player");
         gameModes.displayMenu();
+
         int selectedGameMode = selectMenuOption(gameModes);
         if (selectedGameMode == 1){
-            Game singlePlayer = new SinglePlayerGame();
+            String playerName = getPlayerName();
+            // TODO Upgraded players
+//            isVeteran(playerName);
+            QuestionCategory category = getCategory();
+            //testing only TODO to remove the souts
+            System.out.println("Selected category: " + category);
+            System.out.println(GameMode.SINGLE);
+            
+            Game game = new SinglePlayerGame(category, GameMode.SINGLE, playerName);
         } else {
-            Game doublePlayer = new DoublePlayerGame();
+            Game game = new DoublePlayerGame();
         }
+    }
+
+    private QuestionCategory getCategory() {
+        System.out.print("You can answer questions from certain category or answer questions from random categories. " +
+                        "\nPlease select Questions Category from the list below: \n\n");
+        Menu questionCategories = new Menu(QuestionCategory.toArray());
+        questionCategories.displayMenu();
+        int categoryKey = selectMenuOption(questionCategories);
+        return QuestionCategory.getCategoryByKey(categoryKey);
+    }
+
+    private String getPlayerName() {
+        System.out.println("Please enter your name: ");
+        return in.nextLine();
     }
 
     private int selectMenuOption(Menu menu) {
         for (int i = 0; i < 40; i++) {
             System.out.printf("-");
         }
-        System.out.println();
-        System.out.println("Please select an option and enter it: ");
+        System.out.println("\nPlease select an option and enter it: ");
         int selected = Integer.parseInt(in.nextLine());
         while (selected > menu.getMenuSize()) {
-            System.out.printf("The valid options are from %d to %d. Please make a new entry:", 1, menu.getMenuSize());
-            System.out.println();
+            System.out.printf("The valid options are from %d to %d. Please make a new entry:\n", 1, menu.getMenuSize());
             selected = Integer.parseInt(in.nextLine());
         }
         return selected;
