@@ -1,5 +1,7 @@
 package Game;
 
+import Utilities.Display;
+
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
@@ -69,9 +71,7 @@ public class GameLauncher {
     }
 
     private int selectMenuOption(Menu menu) {
-        for (int i = 0; i < 40; i++) {
-            System.out.printf("-");
-        }
+        Display.drawLine();
         System.out.println("\nPlease select an option and enter it: ");
         int selected = Integer.parseInt(in.nextLine());
         while (selected > menu.getMenuSize()) {
@@ -116,15 +116,9 @@ public class GameLauncher {
                 "  \\_/  \\_/  \\_/  \\_/  \\_/  \\_/  \\_/  \\_/ \n");
 
 
-        for (int i = 0; i < 40; i++) {
-            System.out.printf("-");
-        }
-        System.out.println();
+        Display.drawLine();
         System.out.println("QUIZZZER GAME");
-        for (int i = 0; i < 40; i++) {
-            System.out.printf("-");
-        }
-        System.out.println();
+        Display.drawLine();
     }
 
     //TODO Check rendering in a table: https://stackoverflow.com/questions/15215326/how-can-i-create-table-using-ascii-in-a-console
