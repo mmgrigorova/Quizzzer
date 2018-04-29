@@ -42,9 +42,11 @@ public class GameLauncher {
             QuestionCategory category = getCategory();
             //testing only TODO to remove the souts
             System.out.println("Selected category: " + category);
-            System.out.println(GameMode.SINGLE);
+            System.out.println("Selected game mode: " + GameMode.SINGLE);
+            System.out.println("Player name: " + playerName);
 
-            Game game = new SinglePlayerGame(category, GameMode.SINGLE, playerName);
+            SinglePlayerGame game = new SinglePlayerGame(category, playerName);
+            game.playGame();
         } else {
             //TODO see taking this logic into a method
             QuestionCategory category = getCategory();
