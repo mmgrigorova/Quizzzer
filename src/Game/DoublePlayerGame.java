@@ -1,8 +1,9 @@
 package Game;
 
 public class DoublePlayerGame extends Game {
-    protected DoublePlayerGame(QuestionCategory questionCategory, GameMode gameMode) {
-        super(gameMode, questionCategory);
+	
+    protected DoublePlayerGame(QuestionCategory questionCategory, String playerName) {
+        super(GameMode.DOUBLE, questionCategory);
     }
 
     @Override

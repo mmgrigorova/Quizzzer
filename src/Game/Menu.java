@@ -2,6 +2,8 @@ package Game;
 
 import java.util.ArrayList;
 
+import javax.sound.sampled.LineUnavailableException;
+
 public class Menu {
     private ArrayList<String> menuElements;
     private int menuSize;
@@ -15,10 +17,13 @@ public class Menu {
     }
 
 
-    public void displayMenu(){
+    public void displayMenu() throws InterruptedException, LineUnavailableException{
         for (int i = 1; i < menuElements.size() + 1; i++) {
             System.out.printf("%d. %s", i, menuElements.get(i-1));
             System.out.println();
+            //Thread.sleep(1000);
+            GameSound s = new GameSound();
+            s.tone(400, 600);
         }
     }
 
