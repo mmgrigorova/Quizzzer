@@ -11,6 +11,7 @@ public class RandomQuestionList extends InGameQuestionList{
 
 	public RandomQuestionList(GameMode gameMode, List<Question> allQuestions) {
 		super(gameMode, allQuestions);
+		addedQuestions = new HashSet<>();
 		rnd = new Random();
 		addedQuestions = new HashSet<>();
 		while (currentGameQuestions.size() < 10) {
