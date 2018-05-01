@@ -1,5 +1,7 @@
 package game;
 
+import utilities.Display;
+
 import java.util.ArrayList;
 
 public class Menu {
@@ -17,8 +19,8 @@ public class Menu {
 
     public void displayMenu(){
         for (int i = 1; i < menuElements.size() + 1; i++) {
-            System.out.printf("%d. %s", i, menuElements.get(i-1));
-            System.out.println();
+            String menuItem = String.format("%d. %s", i, menuElements.get(i-1));
+            Display.printFormatted(menuItem);
         }
     }
 

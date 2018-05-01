@@ -1,14 +1,19 @@
 package utilities;
 
 public class Display {
-    public static void drawLine(){
-        for (int i = 0; i < 40; i++) {
-            System.out.printf("-");
+    private static int SCREEN_WIDTH = 110;
+    private static int START_PADDING = 8;
+
+    public static void drawLine() {
+        System.out.printf("|");
+        for (int i = 0; i < SCREEN_WIDTH-2; i++) {
+            System.out.printf("_");
         }
-        System.out.println();
+        System.out.println("|");
+        printFormatted("");
     }
 
-    public static void drawPlayerHeader(String playerName, int gamePoints){
+    public static void drawPlayerHeader(String playerName, int gamePoints) {
         System.out.println(playerName + " game Points: " + gamePoints);
     }
 
@@ -20,7 +25,16 @@ public class Display {
 
 
         Display.drawLine();
-        System.out.println("QUIZZZER GAME");
+        printFormatted("QUIZZZER GAME");
         Display.drawLine();
+    }
+
+    public static void printFormatted(String toPrint) {
+        int startPadding = START_PADDING;
+        int endPadding = SCREEN_WIDTH - (startPadding+toPrint.length()+1);
+        System.out.printf("|       ");
+        System.out.printf("%s", toPrint);
+        System.out.printf("%" + endPadding + "s|",  " ");
+        System.out.println();
     }
 }
