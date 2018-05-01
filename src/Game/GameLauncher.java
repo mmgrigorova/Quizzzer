@@ -1,5 +1,6 @@
 package Game;
 
+
 import utilities.Display;
 import utilities.AppendingObjectOutputStream;
 
@@ -7,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
@@ -52,21 +54,9 @@ public class GameLauncher {
              }
         } while (selectedMenuOption != 5);   
     }
-    
-    private void showGameName() {
-        System.out.printf("   _    _    _    _    _    _    _    _  \n" +
-                "  / \\  / \\  / \\  / \\  / \\  / \\  / \\  / \\ \n" +
-                " ( Q )( U )( I )( Z )( Z )( Z )( E )( R )\n" +
-                "  \\_/  \\_/  \\_/  \\_/  \\_/  \\_/  \\_/  \\_/ \n");
-
-
-        Display.drawLine();
-        System.out.println("QUIZZZER GAME");
-        Display.drawLine();
-    }
-
     private void startGame() {
         //clearScreen();
+        showGameName()
         System.out.println("Please select game mode:\n");
         Menu gameModes = new Menu("Single Player", "Double Player");
         gameModes.displayMenu();
@@ -79,6 +69,7 @@ public class GameLauncher {
             QuestionCategory category = getCategory();
             //testing only TODO to remove the souts
             System.out.println("Selected category: " + category);
+
             System.out.println("Game mode: " + GameMode.SINGLE);
             // Hello, [playerName], you have ... points
             
@@ -93,6 +84,7 @@ public class GameLauncher {
             
         	game = new DoublePlayerGame(category, playerName1, playerName2);
         	game.playGame();
+
         }
     }
     
@@ -194,10 +186,8 @@ public class GameLauncher {
     }
 
     private int selectMenuOption(Menu menu) {
-        for (int i = 0; i < 40; i++) {
-            System.out.printf("-");
-        }
-        System.out.print("\nPlease select an option and enter it: ");
+        Display.drawLine();
+        System.out.println("\nPlease select an option and enter it: ");
         int selected = Integer.parseInt(in.nextLine());
         while (selected > menu.getMenuSize()) {
             System.out.printf("The valid options are from %d to %d. Please make a new entry: ", 1, menu.getMenuSize());
@@ -234,5 +224,18 @@ public class GameLauncher {
 //            //  Handle any exceptions.
 //        }
     }
+    private void showGameName() {
+        System.out.printf("   _    _    _    _    _    _    _    _  \n" +
+                "  / \\  / \\  / \\  / \\  / \\  / \\  / \\  / \\ \n" +
+                " ( Q )( U )( I )( Z )( Z )( Z )( E )( R )\n" +
+                "  \\_/  \\_/  \\_/  \\_/  \\_/  \\_/  \\_/  \\_/ \n");
+
+
+        Display.drawLine();
+        System.out.println("QUIZZZER GAME");
+        Display.drawLine();
+    }
+
+    //TODO Check rendering in a table: https://stackoverflow.com/questions/15215326/how-can-i-create-table-using-ascii-in-a-console
 
 }

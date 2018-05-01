@@ -5,6 +5,7 @@ import java.util.Scanner;
 import Users.Player;
 
 public class DoublePlayerGame extends Game {
+
 	private InGameQuestionList questionList;
     private Player player1, player2;
     private int gamePointsPlayer1, gamePointsPlayer2;

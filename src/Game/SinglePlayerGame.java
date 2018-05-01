@@ -42,6 +42,7 @@ public class SinglePlayerGame extends Game {
         
         System.out.println("Hello " + playerName + ", you have " + player.getPoints() + " points.");
         System.out.println();
+
     }
 
     public void playGame() {
@@ -97,9 +98,60 @@ public class SinglePlayerGame extends Game {
         gamePointsPlayer += questionPoints;
     }
 
+    public void playGame() {
+        for (String question : questionList) {
+            displayGameInformation(gamePointsPlayer);
+            //display question - questionList TODO
+            System.out.println(question);
+            getPlayersAnswer();
+            // TODO replace with Question's method
+            //boolean isAnswerCorrect = question.validateAnswer();
+            //TODO Methods in Question:
+//            isAnswerCorrect ? showCorrectAnswer() : showIncorrectAnswer();
+            boolean isAnswerCorrect = true;
+
+//            TODO addPointsToPlayer(question.points);
+            if (isAnswerCorrect) {
+                addPointsToGame(100);
+                correctAnswers += 1;
+            }
+        }
+        endGame();
+    }
+
+    private void displayGameInformation(int gamePointsPlayer) {
+        Display.drawPlayerHeader(gamePointsPlayer);
+    }
+
+    private char getPlayersAnswer() {
+        System.out.println("Your answer: ");
+        char answer = in.nextLine().charAt(0);
+        if (answer < 97 || answer > 100) {
+            System.out.printf("'%c' is not a valid option. Please make a new entry.\n", answer);
+            getPlayersAnswer();
+        }
+        return answer;
+    }
+
+    private Badge checkForBadge(Player player) {
+        return null;
+    }
+
+    private void addBadge(Player player, Badge badge) {
+    }
+
+    private void addPointsToPlayer(int gamePointsPlayer) {
+        player.increasePoints(gamePointsPlayer);
+    }
+
+    private void addPointsToGame(int questionPoints) {
+        gamePointsPlayer += questionPoints;
+    }
+
     @Override
     public void endGame() {
         addPointsToPlayer(player, gamePointsPlayer);
+
         Display.drawLine();
         if (correctAnswers >= MINIMUM_CORRECT_ANSWERS_FOR_WIN) {
             System.out.printf("Congratulations! You have answered correctly to %d questions and have won %d " +
