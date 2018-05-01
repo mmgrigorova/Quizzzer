@@ -12,7 +12,7 @@ public class RandomQuestionList extends InGameQuestionList{
 	public RandomQuestionList(GameMode gameMode, List<Question> allQuestions) {
 		super(gameMode, allQuestions);
 		rnd = new Random();
-		
+		addedQuestions = new HashSet<>();
 		while (currentGameQuestions.size() < 10) {
 			int questionIndex = rnd.nextInt(allQuestions.size());
 			

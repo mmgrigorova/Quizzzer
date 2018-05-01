@@ -39,22 +39,22 @@ public abstract class Game implements Finishable, Playable {
 		try {
 			fin = new FileInputStream("Players.txt");
 			ois = new ObjectInputStream(fin);
-			while (true) {
-				try {
+			while (true) {				
 					players.add((Player)ois.readObject());
-					//System.out.println("player added");
-					}  catch(EOFException e) {
-						break;
-				 	}
-				}
+				}  
 		} 
 		 catch (FileNotFoundException e) {
 			System.out.println("File not found");
-		} catch (IOException e) {
+		} catch(EOFException e) {
+			System.out.println("EOF reached");
+	 	}
+		catch (IOException e) {
 			System.out.println("Error initializing stream");
-		} catch (ClassNotFoundException e) {
+		} 
+		catch (ClassNotFoundException e) {
 			e.printStackTrace();
-		} finally {
+		} 
+		finally {
 			if (ois != null) {
 				try {
 					ois.close();
@@ -77,7 +77,6 @@ public abstract class Game implements Finishable, Playable {
 			while (true) {
 				try {
 					questions.add((Question)ois.readObject());
-					//System.out.println("player added");
 					}  catch(EOFException e) {
 						break;
 				 	}
