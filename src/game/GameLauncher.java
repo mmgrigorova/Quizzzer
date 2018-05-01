@@ -56,7 +56,7 @@ public class GameLauncher {
 
     private void startGame() {
         //clearScreen();
-        System.out.println("Please select game mode:\n");
+        Display.printFormatted("Please select game mode:");
         Menu gameModes = new Menu("Single Player", "Double Player");
         gameModes.displayMenu();
 
@@ -184,7 +184,8 @@ public class GameLauncher {
 
     private int selectMenuOption(Menu menu) {
         Display.drawLine();
-        System.out.print("\nPlease select an option and enter it: ");
+        Display.printFormatted("Please select an option and enter it: ");
+
         int selected = 0;
         while (selected < 1 || selected > menu.getMenuSize()) {
         	try {
