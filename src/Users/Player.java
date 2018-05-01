@@ -1,5 +1,6 @@
 package Users;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class Player extends User implements Punishable {
 		this.points = points;
 		this.badges = badges;
 	}
-
+	
 	public void increasePoints(int pointsToAdd){
 		points += pointsToAdd;
 	}
@@ -32,4 +33,15 @@ public class Player extends User implements Punishable {
 		}
 	}
 	
+	
+	
+	public int getPoints() {
+		return points;
+	}
+
+	@Override
+	public String toString() {
+		String str = userName + " " + points;
+		return str;
+	}
 }
