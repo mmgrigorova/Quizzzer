@@ -1,4 +1,4 @@
-package Game;
+package game;
 
 import utilities.Display;
 import utilities.AppendingObjectOutputStream;
@@ -7,7 +7,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 public class GameLauncher {
@@ -22,7 +21,7 @@ public class GameLauncher {
         showGameName();
         Game.loadData();
         
-        Menu welcomeMenu = new Menu("New Game", "Ranklist", "Add new question", "How to Play", "Save and Exit Game");
+        Menu welcomeMenu = new Menu("New game", "Ranklist", "Add new question", "How to Play", "Save and Exit game");
         int selectedMenuOption;
         
         do {
@@ -79,7 +78,7 @@ public class GameLauncher {
             QuestionCategory category = getCategory();
             //testing only TODO to remove the souts
             System.out.println("Selected category: " + category);
-            System.out.println("Game mode: " + GameMode.SINGLE);
+            System.out.println("game mode: " + GameMode.SINGLE);
             // Hello, [playerName], you have ... points
             
             game = new SinglePlayerGame(category, playerName);
@@ -89,7 +88,7 @@ public class GameLauncher {
         	String playerName2 = getPlayerName();
         	QuestionCategory category = getCategory();
         	System.out.println("Selected category: " + category);
-            System.out.println("Game mode: " + GameMode.DOUBLE);
+            System.out.println("game mode: " + GameMode.DOUBLE);
             
         	game = new DoublePlayerGame(category, playerName1, playerName2);
         	game.playGame();

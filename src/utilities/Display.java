@@ -1,7 +1,5 @@
 package utilities;
 
-import Users.Player;
-
 public class Display {
     public static void drawLine(){
         for (int i = 0; i < 40; i++) {
@@ -11,6 +9,6 @@ public class Display {
     }
 
     public static void drawPlayerHeader(String playerName, int gamePoints){
-        System.out.println(playerName + " Game Points: " + gamePoints);
+        System.out.println(playerName + " game Points: " + gamePoints);
     }
 }

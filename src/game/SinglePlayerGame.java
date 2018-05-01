@@ -1,7 +1,6 @@
-package Game;
+package game;
 
-import Users.Badge;
-import Users.Player;
+import users.Player;
 import utilities.Display;
 import java.util.Scanner;
 

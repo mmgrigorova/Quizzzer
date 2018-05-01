@@ -1,4 +1,4 @@
-package Game;
+package game;
 
 public enum QuestionCategory {
     RANDOM(1, "Random"),

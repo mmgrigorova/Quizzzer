@@ -1,8 +1,8 @@
-package Game;
+package game;
 
 import java.util.Scanner;
 
-import Users.Player;
+import users.Player;
 
 public class DoublePlayerGame extends Game {
 	private InGameQuestionList questionList;
