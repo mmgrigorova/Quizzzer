@@ -1,4 +1,4 @@
-package Utilities;
+package utilities;
 
 import Users.Player;
 
@@ -10,7 +10,7 @@ public class Display {
         System.out.println();
     }
 
-    public static void drawPlayerHeader(int gamePoints){
-        System.out.println("Game Points: " + gamePoints);
+    public static void drawPlayerHeader(String playerName, int gamePoints){
+        System.out.println(playerName + " Game Points: " + gamePoints);
     }
 }
