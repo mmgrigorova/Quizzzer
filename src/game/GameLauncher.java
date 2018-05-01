@@ -183,14 +183,21 @@ public class GameLauncher {
     private int selectMenuOption(Menu menu) {
         Display.drawLine();
         System.out.print("\nPlease select an option and enter it: ");
-        int selected = Integer.parseInt(in.nextLine());
-        while (selected > menu.getMenuSize()) {
-            System.out.printf("The valid options are from %d to %d. Please make a new entry: ", 1, menu.getMenuSize());
-            selected = Integer.parseInt(in.nextLine());
+        int selected = 0;
+        while (selected < 1 || selected > menu.getMenuSize()) {
+        	try {
+        		selected = Integer.parseInt(in.nextLine());
+        	} catch (NumberFormatException e) {
+                System.out.printf("The valid options are from %d to %d. Please make a new entry: ", 1, menu.getMenuSize());
+                continue;
+        	}
+        	if (selected < 1 || selected > menu.getMenuSize()) {
+                System.out.printf("The valid options are from %d to %d. Please make a new entry: ", 1, menu.getMenuSize());
+        	}
         }
         return selected;
     }
-
+    
     //TODO Try clear Screen methods
     private static void clearScreen() {
 
