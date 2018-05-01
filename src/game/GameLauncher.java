@@ -24,9 +24,7 @@ public class GameLauncher {
         Game.loadData();
 
         Menu welcomeMenu = new Menu("New Game", "Ranklist", "How to Play", "Add New Question", "List All Questions",
-                "Save and Exit" +
-                        " " +
-                        "game");
+                "Save and Exit Game");
         int selectedMenuOption;
 
         do {
