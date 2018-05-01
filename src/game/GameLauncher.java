@@ -18,7 +18,7 @@ public class GameLauncher {
     }
 
     public void start() {
-        showGameName();
+        Display.showGameName();
         Game.loadData();
         
         Menu welcomeMenu = new Menu("New game", "Ranklist", "Add new question", "How to Play", "Save and Exit game");
@@ -39,7 +39,6 @@ public class GameLauncher {
                 	 
                 	 break;
                  case 4:
-                	 
                      //TODO  showInstructions();  
                 	 for (Question q : Game.questions) {
                 		 System.out.println(q.toString());
@@ -47,22 +46,11 @@ public class GameLauncher {
                      break;
                  case 5:
                  	 Game.saveGame();
-                     //System.exit(0);
              }
         } while (selectedMenuOption != 5);   
     }
     
-    private void showGameName() {
-        System.out.printf("   _    _    _    _    _    _    _    _  \n" +
-                "  / \\  / \\  / \\  / \\  / \\  / \\  / \\  / \\ \n" +
-                " ( Q )( U )( I )( Z )( Z )( Z )( E )( R )\n" +
-                "  \\_/  \\_/  \\_/  \\_/  \\_/  \\_/  \\_/  \\_/ \n");
 
-
-        Display.drawLine();
-        System.out.println("QUIZZZER GAME");
-        Display.drawLine();
-    }
 
     private void startGame() {
         //clearScreen();
@@ -193,9 +181,7 @@ public class GameLauncher {
     }
 
     private int selectMenuOption(Menu menu) {
-        for (int i = 0; i < 40; i++) {
-            System.out.printf("-");
-        }
+        Display.drawLine();
         System.out.print("\nPlease select an option and enter it: ");
         int selected = Integer.parseInt(in.nextLine());
         while (selected > menu.getMenuSize()) {
