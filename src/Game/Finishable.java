@@ -1,5 +1,5 @@
 package Game;
 
 public interface Finishable {
-    void endGame();
+	void endGame();
 }
