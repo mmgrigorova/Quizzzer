@@ -24,7 +24,8 @@ public class ClosedQuestion extends Question implements Validateable{
 	
 	@Override 
 	public String toString() {
-		return super.toString() + String.format("A. %s\tB. %s\tC. %s\tD. %s\n",
+		String spaces = "    ";
+		return super.toString() + String.format("A. %s" + spaces + "B. %s" + spaces + "C. %s" + spaces + "D. %s",
 												possibleAnswers.get(1),
 												possibleAnswers.get(2),
 												possibleAnswers.get(3),
