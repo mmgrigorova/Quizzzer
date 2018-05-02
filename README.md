@@ -1,13 +1,11 @@
 # QUIZZZER!
 
-Quizzzer is a console trivia game developed by team Loki. This is the first project for Telerik Academy Alpha - Java.
+Quizzzer is a console trivia game developed by team Loki. This is the first project for Telerik Academy Alpha - Java 2018.
 
 ## Gameplay
 
-Player starts the game
-game prompts the player for their name (NOTE: we need this here to check if we can upgrade user or not.)
+User starts the game
 The Welcome screen allows picking one of the following options:
-  * Check if Player has above 100 points and Upgrade them
   * Start New game - game walks player through picking the game options:
     * Select Player Mode
       - Single Player
@@ -76,11 +74,13 @@ game evaluates answer
 * E.g: if they answer questions correctly in a row or 
 * if they rock in certain category
 
+#### Administrative View
+* Administrators create questions 
+* Add Question
+
 -------------------------------------------
 ## Not Doing:
-Administrative View
-* Administrators create questions 
-* Add Categories
-* Add Question
+
+* Add Question Categories
 * Delete users
 
