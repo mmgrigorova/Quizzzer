@@ -1,12 +1,12 @@
 package game;
 
 import users.Player;
+import utilities.Display;
 
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class Ranklist {
+    private static int LINE_LENGTH = 70;
 
     // sort list of players by points and write it on console
     public static void showRanklist(List<Player> players) {
@@ -14,9 +14,26 @@ public class Ranklist {
             return p2.getPoints() - p1.getPoints(); // Ascending
         });
 
-        //TODO Check rendering in a table: https://stackoverflow.com/questions/15215326/how-can-i-create-table-using-ascii-in-a-console
+        Display.printHeader("Player Ranklist");
+
         for (Player p : players) {
-            System.out.println(p);
+            int rank = players.indexOf(p) + 1;
+            Display.printFormatted(rank + ". " + formatLines(p));
         }
+
+        Display.printFooter();
     }
+
+    private static String formatLines(Player p) {
+        String name = p.getUserName();
+        String points = String.valueOf(p.getPoints());
+
+        StringBuilder dots = new StringBuilder();
+        int dotNumber = LINE_LENGTH - name.length() - points.length();
+        for (int i = 0; i < dotNumber; i++) {
+            dots.append(".");
+        }
+        return String.format("%s" + dots + "%s", name, points);
+    }
+
 }

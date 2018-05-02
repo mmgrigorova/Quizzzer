@@ -31,8 +31,8 @@ public class Display {
 
     public static void drawPlayerHeader(String playerName1, int gamePoints1, String playerName2, int gamePoints2) {
         drawLine();
-        String top = String.format("%1$-10s %2$80s" , playerName1, playerName2);
-        String bottom = String.format("%1$-10s %2$80s" , gamePoints1, gamePoints2);
+        String top = String.format("%1$-10s %2$80s", playerName1, playerName2);
+        String bottom = String.format("%1$-10s %2$80s", gamePoints1, gamePoints2);
         printFormatted(top);
         printFormatted(bottom);
         drawLine(".");
@@ -55,7 +55,7 @@ public class Display {
         for (String s : linesToPrint) {
             int startPadding = START_PADDING;
             int endPadding = SCREEN_WIDTH - (startPadding + s.length() + 1);
-            if (s.contains("\t")){
+            if (s.contains("\t")) {
                 endPadding -= 3;
             }
             System.out.printf("|       ");
@@ -76,10 +76,14 @@ public class Display {
         Display.skipLine();
     }
 
-    public static void printHeader(String left, String right) {
+    public static void printHeader(String header) {
         Display.drawLine();
-        String header = String.format("%-10s %90s", left, right);
         Display.printFormatted(header);
-        Display.skipLine();
+        Display.drawLine(".");
+    }
+
+    public static void printFooter() {
+        skipLine();
+        drawLine();
     }
 }

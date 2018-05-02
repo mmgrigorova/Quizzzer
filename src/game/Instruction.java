@@ -23,9 +23,7 @@ public class Instruction {
 //            "friend.";
 
     public static void showInstructions(){
-        Display.drawLine();
-        Display.printFormatted("How to Play Quizzzer");
-        Display.drawLine(".");
+        Display.printHeader("How to Play Quizzzer");
         ArrayList<String> instructionLines = splitByLength(instructions, 70);
         for (String instructionLine : instructionLines) {
                 Display.printFormatted(instructionLine);
