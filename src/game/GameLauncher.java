@@ -35,7 +35,7 @@ public class GameLauncher {
                     startGame();
                     break;
                 case 2:
-                    Game.showRanklist();
+                    Ranklist.showRanklist(Game.players);
                     break;
                 case 3:
                     Instruction.showInstructions();
@@ -56,7 +56,7 @@ public class GameLauncher {
 
     private void startGame() {
         //clearScreen();
-        Display.printFormatted("Please select game mode:");
+        Display.printTitle("Please select game mode: ");
         Menu gameModes = new Menu("Single Player", "Double Player");
         gameModes.displayMenu();
 
@@ -66,19 +66,14 @@ public class GameLauncher {
             // TODO Upgraded players
 //            isVeteran(playerName);
             QuestionCategory category = getCategory();
-            //testing only TODO to remove the souts
-            System.out.println("Selected category: " + category);
-            System.out.println("game mode: " + GameMode.SINGLE);
-            // Hello, [playerName], you have ... points
 
             game = new SinglePlayerGame(category, playerName);
+            Game.welcomePlayer(playerName, ((SinglePlayerGame) game).getPlayer());
             game.playGame();
         } else {
             String playerName1 = getPlayerName();
             String playerName2 = getPlayerName();
             QuestionCategory category = getCategory();
-            System.out.println("Selected category: " + category);
-            System.out.println("game mode: " + GameMode.DOUBLE);
 
             game = new DoublePlayerGame(category, playerName1, playerName2);
             game.playGame();
@@ -170,7 +165,7 @@ public class GameLauncher {
     }
 
     private QuestionCategory getCategory() {
-        System.out.print("\nPlease select category from the list below: \n\n");
+        Display.printTitle("Please select category from the list below: ");
         Menu questionCategories = new Menu(QuestionCategory.toArray());
         questionCategories.displayMenu();
         int categoryKey = selectMenuOption(questionCategories);
@@ -178,14 +173,13 @@ public class GameLauncher {
     }
 
     private String getPlayerName() {
-        System.out.print("Please enter your name: ");
+        System.out.print("> Please enter your name: ");
         return in.nextLine();
     }
 
     private int selectMenuOption(Menu menu) {
         Display.drawLine();
-        Display.printFormatted("Please select an option and enter it: ");
-
+        System.out.print("> Please select an option and enter it: ");
         int selected = 0;
         while (selected < 1 || selected > menu.getMenuSize()) {
         	try {

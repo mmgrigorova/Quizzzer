@@ -3,6 +3,7 @@ package game;
 import java.util.Scanner;
 
 import users.Player;
+import utilities.Display;
 
 public class DoublePlayerGame extends Game {
 	private InGameQuestionList questionList;
@@ -51,8 +52,7 @@ public class DoublePlayerGame extends Game {
 	@Override
 	public void playGame() {
 		for (Question currentQuestion : questionList.getQuestions()) {
-			displayGameInformation(player1.getUserName(), gamePointsPlayer1);
-			displayGameInformation(player2.getUserName(),gamePointsPlayer2);
+			Display.drawPlayerHeader(player1.getUserName(), player1.getPoints(), player2.getUserName(), player2.getPoints());
 			
 			System.out.println(currentQuestion.toString());
 			

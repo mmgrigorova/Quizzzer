@@ -1,5 +1,7 @@
 package game;
 
+import utilities.Display;
+
 import java.util.HashMap;
 
 public class ClosedQuestion extends Question implements Validateable{
@@ -32,10 +34,12 @@ public class ClosedQuestion extends Question implements Validateable{
 	@Override
 	public int validateAnswer(int playerAnswer) {
 		if (playerAnswer == correctAnswer) {
-			System.out.println("Correct! You've won 10 points.");
+			Display.printFormatted("** Correct! You've won 10 points. **");
+			Display.skipLine();
 			return 10;
 		} else {
-			System.out.println("Wrong! The correct answer was " + possibleAnswers.get(correctAnswer));
+			Display.printFormatted("** Wrong! The correct answer was " + possibleAnswers.get(correctAnswer) + " **");
+			Display.skipLine();
 			return 0;
 		}
 	}

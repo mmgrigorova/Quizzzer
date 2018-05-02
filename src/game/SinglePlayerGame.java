@@ -11,6 +11,7 @@ public class SinglePlayerGame extends Game {
     private Player player;
     private int gamePointsPlayer;
     private int correctAnswers;
+    private int currentQuestionNumber;
     private Scanner in;
 
     public SinglePlayerGame(QuestionCategory questionCategory, String playerName) {
@@ -18,6 +19,7 @@ public class SinglePlayerGame extends Game {
         
         gamePointsPlayer = 0;
         correctAnswers = 0;
+        currentQuestionNumber = 1;
         in = new Scanner(System.in);
 
         if (questionCategory.equals(QuestionCategory.RANDOM)){
@@ -38,17 +40,17 @@ public class SinglePlayerGame extends Game {
         	player = new Player(playerName);
         	Game.players.add(player);
         }
-        
-        System.out.println("Hello " + playerName + ", you have " + player.getPoints() + " points.");
-        System.out.println();
+
     }
 
     public void playGame() {
     	for (Question currentQuestion : questionList.getQuestions()) {
 			displayGameInformation(player.getUserName(), gamePointsPlayer);
-			
-			System.out.println(currentQuestion.toString());
-			
+            Display.printFormatted("Question " + String.valueOf(currentQuestionNumber));
+            Display.skipLine();
+			Display.printFormatted(currentQuestion.toString());
+			Display.skipLine();
+
 			int playerAnswer = getPlayersAnswer();
 			int pointsWon = currentQuestion.validateAnswer(playerAnswer);
 			
@@ -56,14 +58,20 @@ public class SinglePlayerGame extends Game {
 				addPointsToGame(pointsWon);
 				correctAnswers++;
 			}
+			currentQuestionNumber += 1;
     	}
     	endGame();
     }
+
+    public Player getPlayer(){
+        return player;
+    }
     
      protected int getPlayersAnswer() {
-        
+        System.out.print("> Your answer: ");
         String playerInput = in.nextLine();
-        
+        Display.skipLine();
+
 		int answer = 1;
 		switch (playerInput.toLowerCase()) {
 			case "a":
