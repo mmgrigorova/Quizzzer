@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 
 public class SinglePlayerGame extends Game {
-    private static final int MINIMUM_CORRECT_ANSWERS_FOR_WIN = 2;
+    private static final int MINIMUM_CORRECT_ANSWERS_FOR_WIN = 5;
     private InGameQuestionList questionList;
     private Player player;
     private int gamePointsPlayer;
@@ -106,14 +106,18 @@ public class SinglePlayerGame extends Game {
 
     @Override
     public void endGame() {
-        addPointsToPlayer(player, gamePointsPlayer);
-        Display.drawLine();
+        Display.drawLine("*");
+        String finalMessage;
         if (correctAnswers >= MINIMUM_CORRECT_ANSWERS_FOR_WIN) {
-            System.out.printf("Congratulations! You have answered correctly to %d questions and have won %d " +
-                            "points!\n",
-                    correctAnswers,
-                    gamePointsPlayer);
+            addPointsToPlayer(player, gamePointsPlayer);
+            finalMessage = String.format("Congratulations! You have answered correctly to %d questions and have won %d " +
+                            "points!\n", correctAnswers, gamePointsPlayer);
+        } else {
+            finalMessage = String.format("Oops! You need %d correct answers in order to win and you have only" +
+                    " %d. Try again!",MINIMUM_CORRECT_ANSWERS_FOR_WIN, correctAnswers);
         }
-        Display.drawLine();
+        Display.printFormatted(finalMessage);
+        Display.skipLine();
+        Display.drawLine("*");
     }
 }

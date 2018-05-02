@@ -9,12 +9,13 @@ import java.util.stream.Collectors;
 
 public class Instruction {
     private static String instructions = "Quizzzer is a trivia game which you can play by yourself or with a " +
-            "friend"+
-            "First you need to select if you want to play in Single or Double mode." +
-            "The Single player questions are closed questions with four answer. One of them is correct." +
-            "The Double player questions are open questions which require input by each player."+
+            "friend."+
+            "\nFirst you need to select if you want to play by yourself(Single Player mode) or with a friend (Double " +
+            "player mode)." +
+            "\nThe Single player questions are closed questions with four possible answers. One of them is correct." +
+            "\nThe Double player questions are open questions which require input by each player."+
             "The winner is the player who was closest to the correct answer."+
-            "Every correct question brings certain amount of points."+
+            "\nEvery correct question brings certain amount of points."+
             "At the end of the game, should you decide the Save and Exit the Quizzzer, the accumulated points get " +
                     "added to each player's profile.";
 
@@ -24,10 +25,12 @@ public class Instruction {
     public static void showInstructions(){
         Display.drawLine();
         Display.printFormatted("How to Play Quizzzer");
+        Display.drawLine(".");
         ArrayList<String> instructionLines = splitByLength(instructions, 70);
         for (String instructionLine : instructionLines) {
                 Display.printFormatted(instructionLine);
         }
+        Display.skipLine();
         Display.printFormatted("Have a nice time playing Quizzzer!");
         Display.drawLine();
     }

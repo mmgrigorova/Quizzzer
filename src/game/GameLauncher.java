@@ -50,6 +50,7 @@ public class GameLauncher {
                     break;
                 case 6:
                     Game.saveGame();
+                    System.exit(0);
             }
         } while (selectedMenuOption != 5);
     }
