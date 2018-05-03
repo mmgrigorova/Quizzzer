@@ -141,8 +141,8 @@ public abstract class Game implements Finishable, Playable {
         questions.add(newQuestion);
     }
 
-    public static void welcomePlayer(String playerName, Player player) {
-        Display.printTitle("** Hello, " + playerName + "! You start with " + player.getPoints() +
+    public void welcomePlayer(String playerName, Player player) {
+        Display.printTitle("** Hello, " + playerName + "! You have " + player.getPoints() +
                 " points. Have fun playing Quizzzer! **");
         Display.drawLine(".");
     }

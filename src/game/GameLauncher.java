@@ -109,7 +109,7 @@ public class GameLauncher {
             QuestionCategory category = getCategory();
 
             game = new SinglePlayerGame(category, playerName);
-            Game.welcomePlayer(playerName, ((SinglePlayerGame) game).getPlayer());
+            //Game.welcomePlayer(playerName, ((SinglePlayerGame) game).getPlayer());
             game.playGame();
         } else {
             String playerName1 = getPlayerName();

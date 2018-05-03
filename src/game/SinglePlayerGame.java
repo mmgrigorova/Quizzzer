@@ -40,7 +40,8 @@ public class SinglePlayerGame extends Game {
         	player = new Player(playerName);
         	Game.players.add(player);
         }
-
+        
+        welcomePlayer(playerName,player);
     }
 
     public void playGame() {

@@ -44,9 +44,8 @@ public class DoublePlayerGame extends Game {
         	Game.players.add(player2);
         }
         
-        System.out.println("Hello " + playerName1 + ", you have " + player1.getPoints() + " points.");
-        System.out.println("Hello " + playerName2 + ", you have " + player2.getPoints() + " points.");
-        System.out.println();
+        welcomePlayer(playerName1,player1);
+        welcomePlayer(playerName2,player2);
 	}
 	
 	@Override
