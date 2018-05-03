@@ -20,4 +20,17 @@ public class Administrator extends User {
 			System.out.println("There is no such player");
 		}
 	}
+	
+	public void deletePlayer(String playerName, ArrayList<Player> players) {
+		boolean operationDone = false;
+		for (Player p : players) {
+			if (p.getUserName().equals(playerName)) {
+				players.remove(p);
+				operationDone = true;
+			}
+		}
+		if (!operationDone) {
+			System.out.println("There is no such player");
+		}
+	}
 }
