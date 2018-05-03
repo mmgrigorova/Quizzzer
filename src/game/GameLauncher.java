@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.Scanner;
 
+import users.*;
+
 public class GameLauncher {
     private Scanner in;
     private Game game;
@@ -39,7 +41,19 @@ public class GameLauncher {
                     Instruction.showInstructions();
                     break;
                 case 4:
-                    addQuestion();
+                	String playerName = getPlayerName(); 
+                	if (playerName.equals("admin")) {
+                		addQuestion();
+                		break;
+                	}
+                	for (Player p : Game.players) {
+                		if (p.getUserName().equals(playerName) &&
+                			p instanceof VeteranPlayer) {
+                			addQuestion();
+                			break;
+                		}
+                	}
+                    System.out.println("Sorry, you do not have the required privliges to add questions.");
                     break;
                 case 5:
                     for (Question q : Game.questions) {
