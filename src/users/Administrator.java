@@ -1,6 +1,7 @@
 package users;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Administrator extends User {
@@ -24,12 +25,14 @@ public class Administrator extends User {
 	
 	public void deletePlayer(String playerName, List<Player> players) {
 		boolean operationDone = false;
-		for (Player p : players) {
-			if (p.getUserName().equals(playerName)) {
-				players.remove(p);
+		
+		for (Iterator<Player> it = players.iterator(); it.hasNext(); ) {
+			if (it.next().getUserName().equals(playerName)) {
+				it.remove();
 				operationDone = true;
 			}
 		}
+		
 		if (!operationDone) {
 			System.out.println("There is no such player");
 		}
