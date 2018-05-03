@@ -7,6 +7,10 @@ public class Player extends User implements Punishable {
 	private int points;
 	private List<Badge> badges;
 	
+	public List<Badge> getBadges() {
+		return badges;
+	}
+
 	// if there's no such player, create a new player
 	public Player(String userName) {
 		this(userName, 0, new ArrayList<>());

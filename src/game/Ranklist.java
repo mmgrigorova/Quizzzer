@@ -19,6 +19,7 @@ public class Ranklist {
         for (Player p : players) {
             int rank = players.indexOf(p) + 1;
             Display.printFormatted(rank + ". " + formatLines(p));
+            System.out.println(p.getClass().getName());
         }
 
         Display.printFooter();

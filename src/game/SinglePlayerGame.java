@@ -1,7 +1,12 @@
 package game;
 
+import users.Badge;
 import users.Player;
+import users.VeteranPlayer;
 import utilities.Display;
+
+import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -30,12 +35,33 @@ public class SinglePlayerGame extends Game {
 
         player = null;
         
-        for (Player p : Game.players) {
-        	if (p.getUserName().equals(playerName)) {
-        		player = p;
-        		break;
-        	}
-        }       
+        for (Iterator<Player> it = players.iterator(); it.hasNext(); ) {
+        	Player p = it.next();
+			if (p.getUserName().equals(playerName)) {
+				player = p;
+				if (p.getPoints() > 300) {
+        			List<Badge> badges = p.getBadges();
+        			int points = p.getPoints();
+        			player = new VeteranPlayer(playerName, points, badges);
+        			it.remove();
+        			Game.players.add(player);
+        			//System.out.println(player.getClass().getName());
+        		}
+				break;
+			}
+		}
+//        for (Player p : Game.players) {
+//        	if (p.getUserName().equals(playerName)) {
+//        		player = p;
+//        		if (p.getPoints() > 300) {
+//        			List<Badge> badges = p.getBadges();
+//        			int points = p.getPoints();
+//        			player = new VeteranPlayer(playerName, points, badges);
+//        			System.out.println(player.getClass().getName());
+//        		}
+//        		break;
+//        	}
+//        }       
         if (player == null) {
         	player = new Player(playerName);
         	Game.players.add(player);
