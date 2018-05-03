@@ -11,11 +11,11 @@ public class StartQuizzzer {
 //        GameLauncher launcher = new GameLauncher();
 //        launcher.start();
     	
-    	Player p = new Player("Johny");
-    	
-    	for (QuestionCategory q : p.getAnsweredQuestions().keySet()) {
-    		System.out.println(q + " " + p.getAnsweredQuestions().get(q));
-    	}
+//    	Player p = new Player("Johny");
+//    	
+//    	for (QuestionCategory q : p.getAnsweredQuestions().keySet()) {
+//    		System.out.println(q + " " + p.getAnsweredQuestions().get(q));
+//    	}
         
 //      ArrayList<Question> list = new ArrayList<>();
 //    

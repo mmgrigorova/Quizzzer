@@ -53,10 +53,14 @@ public class Player extends User implements Punishable {
 		}
 	}
 	
-	
-	
 	public int getPoints() {
 		return points;
+	}
+	
+	public void increaseAnsweredQuestions(QuestionCategory category) {
+		int answeredCount = answeredQuestions.get(category);
+		answeredCount++;
+		answeredQuestions.put(category, answeredCount);
 	}
 
 	@Override
