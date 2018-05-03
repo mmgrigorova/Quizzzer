@@ -51,7 +51,7 @@ public class DoublePlayerGame extends Game {
 	@Override
 	public void playGame() {
 		for (Question currentQuestion : questionList.getQuestions()) {
-			Display.drawPlayerHeader(player1.getUserName(), player1.getPoints(), player2.getUserName(), player2.getPoints());
+			Display.drawPlayerHeader(player1.getUserName(), gamePointsPlayer1, player2.getUserName(),gamePointsPlayer2);
 			
 			System.out.println(currentQuestion.toString());
 			
