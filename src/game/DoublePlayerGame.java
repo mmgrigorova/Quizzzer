@@ -63,6 +63,15 @@ public class DoublePlayerGame extends Game {
 			int player1score = currentQuestion.validateAnswer(player1answer);
 			int player2score = currentQuestion.validateAnswer(player2answer);
 			
+			if (player1score == 0) {
+				// answer is correct, increase answers
+				player1.increaseAnsweredQuestions(currentQuestion.getCategory());
+			}
+			if (player2score == 0) {
+				// answer is correct, increase answers
+				player2.increaseAnsweredQuestions(currentQuestion.getCategory());
+			}
+			
 			System.out.println("Correct answer is: " + currentQuestion.getCorrectAnswer());
 			
 			if (player1score > player2score) {

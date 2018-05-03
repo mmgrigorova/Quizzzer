@@ -62,6 +62,48 @@ public class Player extends User implements Punishable {
 		answeredCount++;
 		answeredQuestions.put(category, answeredCount);
 	}
+	
+	public void checkForBadges(int pointsWonInGame) {
+		if (pointsWonInGame == 100) {
+			// check for Perfect Game badge
+			boolean hasPerfectGameBadge = false;
+			for (Badge badge : badges) {
+				if (badge.getBadgeName().equals("Perfect Game")) {
+					hasPerfectGameBadge = true;
+					break;
+				}
+			}
+			if (!hasPerfectGameBadge) {
+				System.out.println("Congatulations, " + userName + "! " 
+									+ "You've scored 100 points in a signle game! "
+									+ "You've been awarded the 'Perfect Game' badge.");
+				Badge perfectGame = new Badge("Perfect Game", "Score 100 points in a single game.");
+				badges.add(perfectGame);
+			}
+		}
+		
+		// check for master badge
+		for (QuestionCategory category : answeredQuestions.keySet()) {
+			if (answeredQuestions.get(category) >= 15) {
+				boolean hasMasterBadge = false;
+				String categoryName = category.toString() + " Master";
+				for (Badge badge : badges) {
+					if (badge.getBadgeName().equals(categoryName)) {
+						hasMasterBadge = true;
+						break;
+					}
+				}
+				if (!hasMasterBadge) {
+					System.out.println("Congratulations, " + userName + "! "
+										+ "You've answered 15 " + category.toString() + " questions!"
+										+ "You've been awarded the '" + category.toString() + " Master' badge.");
+					Badge master = new Badge(category.toString(),
+											"Answered 15 or more " + category.toString() + " questions.");
+					badges.add(master);
+				}
+			}
+		}
+	}
 
 	@Override
 	public String toString() {

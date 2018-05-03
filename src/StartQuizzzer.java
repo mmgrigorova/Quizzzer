@@ -11,6 +11,9 @@ public class StartQuizzzer {
 //        GameLauncher launcher = new GameLauncher();
 //        launcher.start();
     	
+//    	QuestionCategory q =  QuestionCategory.HIST;
+//    	System.out.println(q.toString());
+    	
 //    	Player p = new Player("Johny");
 //    	
 //    	for (QuestionCategory q : p.getAnsweredQuestions().keySet()) {

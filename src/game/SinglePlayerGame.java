@@ -73,6 +73,7 @@ public class SinglePlayerGame extends Game {
 			if (pointsWon > 0) {
 				addPointsToGame(pointsWon);
 				correctAnswers++;
+				player.increaseAnsweredQuestions(currentQuestion.getCategory());
 			}
 			currentQuestionNumber += 1;
     	}
