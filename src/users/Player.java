@@ -1,11 +1,16 @@
 package users;
 
 import java.util.ArrayList;
+import java.util.EnumSet;
+import java.util.HashMap;
 import java.util.List;
+
+import game.QuestionCategory;
 
 public class Player extends User implements Punishable {
 	private int points;
 	private List<Badge> badges;
+	private HashMap<QuestionCategory, Integer> answeredQuestions;
 	
 	public List<Badge> getBadges() {
 		return badges;
@@ -21,8 +26,20 @@ public class Player extends User implements Punishable {
 		super(userName);
 		this.points = points;
 		this.badges = badges;
+		answeredQuestions = new HashMap<>();
+		
+		EnumSet.allOf(QuestionCategory.class)
+		  .forEach(category -> answeredQuestions.put(category, 0));
 	}
 	
+	public HashMap<QuestionCategory, Integer> getAnsweredQuestions() {
+		return answeredQuestions;
+	}
+
+	public void setAnsweredQuestions(HashMap<QuestionCategory, Integer> answeredQuestions) {
+		this.answeredQuestions = answeredQuestions;
+	}
+
 	public void increasePoints(int pointsToAdd){
 		points += pointsToAdd;
 	}

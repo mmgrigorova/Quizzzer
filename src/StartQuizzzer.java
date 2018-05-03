@@ -8,8 +8,14 @@ import game.*;
 
 public class StartQuizzzer {
     public static void main(String[] args) throws IOException, FileNotFoundException{
-        GameLauncher launcher = new GameLauncher();
-        launcher.start();
+//        GameLauncher launcher = new GameLauncher();
+//        launcher.start();
+    	
+    	Player p = new Player("Johny");
+    	
+    	for (QuestionCategory q : p.getAnsweredQuestions().keySet()) {
+    		System.out.println(q + " " + p.getAnsweredQuestions().get(q));
+    	}
         
 //      ArrayList<Question> list = new ArrayList<>();
 //    
