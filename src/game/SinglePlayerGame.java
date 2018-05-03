@@ -27,12 +27,6 @@ public class SinglePlayerGame extends Game {
         currentQuestionNumber = 1;
         in = new Scanner(System.in);
 
-        if (questionCategory.equals(QuestionCategory.RANDOM)){
-            questionList = new RandomQuestionList(GameMode.SINGLE, Game.questions);
-        } else {
-            questionList = new CategoryQuestionsList(GameMode.SINGLE, questionCategory, Game.questions);
-        }
-
         player = null;
         
         for (Iterator<Player> it = players.iterator(); it.hasNext(); ) {
@@ -49,22 +43,25 @@ public class SinglePlayerGame extends Game {
         		}
 				break;
 			}
-		}
-//        for (Player p : Game.players) {
-//        	if (p.getUserName().equals(playerName)) {
-//        		player = p;
-//        		if (p.getPoints() > 300) {
-//        			List<Badge> badges = p.getBadges();
-//        			int points = p.getPoints();
-//        			player = new VeteranPlayer(playerName, points, badges);
-//        			System.out.println(player.getClass().getName());
-//        		}
-//        		break;
-//        	}
-//        }       
+		}   
         if (player == null) {
         	player = new Player(playerName);
         	Game.players.add(player);
+        }
+        
+        // if bonus category chosen, check if player is veteran
+//        if (questionCategory.equals(QuestionCategory.BONUS)) {
+//        	if (player instanceof Player) {
+//        		System.out.println("You have to be a Veteran to play in this category."
+//        							+ "Obtain 300 points to unlock Bonus category.");	
+//        		return;
+//        	}
+//        }
+        
+        if (questionCategory.equals(QuestionCategory.RANDOM)){
+            questionList = new RandomQuestionList(GameMode.SINGLE, Game.questions);
+        } else {
+            questionList = new CategoryQuestionsList(GameMode.SINGLE, questionCategory, Game.questions);
         }
         
         welcomePlayer(playerName,player);

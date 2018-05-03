@@ -104,10 +104,16 @@ public class GameLauncher {
         int selectedGameMode = selectMenuOption(gameModes);
         if (selectedGameMode == 1) {
             String playerName = getPlayerName();
-            // TODO Upgraded players
-//            isVeteran(playerName);
             QuestionCategory category = getCategory();
-
+            
+            if (category.equals(QuestionCategory.BONUS)) {
+            	if(!isVeteran(playerName)) {
+            		System.out.println("You have to be a Veteran to play in this category."
+    						+ "Obtain 300 points to unlock Bonus category.");
+              		startGame();
+            	}
+            }
+            
             game = new SinglePlayerGame(category, playerName);
             //Game.welcomePlayer(playerName, ((SinglePlayerGame) game).getPlayer());
             game.playGame();
@@ -116,9 +122,32 @@ public class GameLauncher {
             String playerName2 = getPlayerName();
             QuestionCategory category = getCategory();
 
+            if (category.equals(QuestionCategory.BONUS)) {
+            	boolean isVeteranPlayer1 = isVeteran(playerName1);
+            	boolean isVeteranPlayer2 = isVeteran(playerName2);
+            	
+            	if (!isVeteranPlayer1 && !isVeteranPlayer2) {
+            		System.out.println("None of the players is Veteran."
+            						+ "You need at least 300 points to unlock Bonus category.");
+              		startGame();
+            	}
+            }
+            
             game = new DoublePlayerGame(category, playerName1, playerName2);
             game.playGame();
         }
+    }
+    
+    private boolean isVeteran(String playerName) {
+    	for (Player p : Game.players) {
+    		if (p.getUserName().equals(playerName)) {
+    			if (!(p instanceof VeteranPlayer)) {
+            		return false;
+            	} else 
+            		return true;
+    		}
+    	}	
+    	return false;
     }
 
     private void addQuestion() {

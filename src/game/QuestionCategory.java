@@ -5,7 +5,8 @@ public enum QuestionCategory {
     GEO(2, "Geography"),
     TECH(3, "Technology"),
     TV(4, "TV Shows"),
-	SPORTS(5, "Sports");
+	SPORTS(5, "Sports"),
+	BONUS(6, "Bonus");
 
     //http://ceving.blogspot.bg/2012/10/enum-in-java-with-array-of-string-values.html
     private static final String[] array;
