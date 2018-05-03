@@ -8,8 +8,8 @@ import game.*;
 
 public class StartQuizzzer {
     public static void main(String[] args) throws IOException, FileNotFoundException{
-//        GameLauncher launcher = new GameLauncher();
-//        launcher.start();
+        GameLauncher launcher = new GameLauncher();
+        launcher.start();
     	
 //    	QuestionCategory q =  QuestionCategory.HIST;
 //    	System.out.println(q.toString());
@@ -90,7 +90,9 @@ public class StartQuizzzer {
 //      o.close();
 //      
 //      
-      // ADD PLAYERS
+//       ADD PLAYERS
+      
+      
 //      f = new FileOutputStream("Players.txt");
 //      o = new ObjectOutputStream(f); 
 //      

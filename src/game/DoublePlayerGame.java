@@ -110,6 +110,8 @@ public class DoublePlayerGame extends Game {
 			System.out.println("The game ends as a draw. Both players have earned " + gamePointsPlayer1 + " points.");
 		}
 		
+		player1.checkForBadges(gamePointsPlayer1);
+		player2.checkForBadges(gamePointsPlayer2);
 	}
 
 	@Override
