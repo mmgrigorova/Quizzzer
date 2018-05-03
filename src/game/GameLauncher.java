@@ -17,8 +17,6 @@ public class GameLauncher {
         in = new Scanner(System.in);
     }
 
-
-
     public void start() {
         Display.showGameName();
         Game.loadData();
@@ -26,7 +24,7 @@ public class GameLauncher {
         Menu welcomeMenu = new Menu("New Game", "Ranklist", "How to Play", "Add New Question", "List All Questions",
                 "Save and Exit Game");
         int selectedMenuOption;
-
+        
         do {
             welcomeMenu.displayMenu();
             selectedMenuOption = selectMenuOption(welcomeMenu);
@@ -52,7 +50,7 @@ public class GameLauncher {
                     Game.saveGame();
                     System.exit(0);
             }
-        } while (selectedMenuOption != 5);
+        } while (selectedMenuOption != 6);
     }
 
     private void startGame() {
@@ -81,17 +79,15 @@ public class GameLauncher {
         }
     }
 
-    public void addQuestion() {
+    private void addQuestion() {
         Question newQuestion = null;
 
-        //get user input
-        //System.out.print("Enter question category: ");
         QuestionCategory category = getCategory();
 
-        System.out.println("1. Multi-answer question");
-        System.out.println("2. Open-answer question");
-        System.out.print("Select question type: ");
-        int questionChoice = Integer.parseInt(in.nextLine());
+        Menu questionType = new Menu("Multi-answer question", "Open-answer question");
+        questionType.displayMenu();
+      
+        int questionChoice = selectMenuOption(questionType);
 
         System.out.print("Enter question: ");
         String question = in.nextLine();
