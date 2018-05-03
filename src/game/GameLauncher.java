@@ -24,7 +24,7 @@ public class GameLauncher {
         Game.loadData();
 
         Menu welcomeMenu = new Menu("New Game", "Ranklist", "How to Play", "Add New Question", "List All Questions",
-                "Save and Exit Game");
+                					"Admin Panel", "Save and Exit Game");
         int selectedMenuOption;
         
         do {
@@ -61,10 +61,38 @@ public class GameLauncher {
                     }
                     break;
                 case 6:
+                	String userName = getPlayerName();
+                	if ("admin".equals(userName.toLowerCase())) {
+                		Administrator admin = new Administrator(userName);
+                		Menu adminPanel = new Menu("Punish Player", "Delete Player");
+                		adminPanel.displayMenu();
+                		int selectedGameMode = selectMenuOption(adminPanel);
+                		
+                		switch (selectedGameMode) {
+                		case 1: 
+                			System.out.print("> Player name: ");
+                			String playerToPunish = in.nextLine();
+                			System.out.print("> Points to deduct: ");
+                			int pointsToDeduct = Integer.parseInt(in.nextLine());
+                			
+                			admin.punishPlayer(playerToPunish, pointsToDeduct, Game.players);
+                			break;
+                		case 2:
+                			System.out.print("> Player name: ");
+                			String playerToBan = in.nextLine();
+                			
+                			admin.deletePlayer(playerToBan, Game.players);
+                			break;
+                		}
+                	} else {
+                		System.out.println("You have to be Administrator to access the Admin Panel.");
+                	}
+                	break;
+                case 7:
                     Game.saveGame();
-                    System.exit(0);
+                    //System.exit(0);
             }
-        } while (selectedMenuOption != 6);
+        } while (selectedMenuOption != 7);
     }
 
     private void startGame() {

@@ -1,6 +1,7 @@
 package users;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Administrator extends User {
 
@@ -8,7 +9,7 @@ public class Administrator extends User {
 		super(userName);
 	}
 	
-	public void punishPlayer(String playerName, int pointsToDeduct, ArrayList<Player> players) {
+	public void punishPlayer(String playerName, int pointsToDeduct, List<Player> players) {
 		boolean operationDone = false;
 		for (Player p : players) {
 			if (p.getUserName().equals(playerName)) {
@@ -21,7 +22,7 @@ public class Administrator extends User {
 		}
 	}
 	
-	public void deletePlayer(String playerName, ArrayList<Player> players) {
+	public void deletePlayer(String playerName, List<Player> players) {
 		boolean operationDone = false;
 		for (Player p : players) {
 			if (p.getUserName().equals(playerName)) {
