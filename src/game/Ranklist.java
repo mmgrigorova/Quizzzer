@@ -8,19 +8,50 @@ import java.util.List;
 public class Ranklist {
     private static int LINE_LENGTH = 70;
 
-    // sort list of players by points and write it on console
+     //sort list of players by points and write it on console
+//    public static void showRanklist(List<Player> players) {
+//        players.sort((p1, p2) -> {
+//            return p2.getPoints() - p1.getPoints(); // Ascending
+//        });
+//
+//        Display.printHeader("Player Ranklist");
+//
+//        for (Player p : players) {
+//            int rank = players.indexOf(p) + 1;
+//            Display.printFormatted(rank + ". " + formatLines(p));
+//        }
+//
+//        Display.printFooter();
+//    }
+    
     public static void showRanklist(List<Player> players) {
         players.sort((p1, p2) -> {
             return p2.getPoints() - p1.getPoints(); // Ascending
         });
 
         Display.printHeader("Player Ranklist");
+        
+        String leftAlignFormat = "| %-3s | %-35s | %-30s | %-35s |%n";
 
-        for (Player p : players) {
-            int rank = players.indexOf(p) + 1;
-            Display.printFormatted(rank + ". " + formatLines(p));
+        System.out.format("+......+..............................+................................+.....................................+%n");
+        System.out.format(leftAlignFormat,"Rank", "Player Name", "Points", "Badges");
+        
+    
+      
+        
+        System.out.format("+.....................................+................................+.....................................+%n");        
+//	    for (Player p : players) {
+//	    	int rank = players.indexOf(p) + 1;
+//	    	System.out.format(leftAlignFormat, "some data" + i, i * i, "master");
+//	    	Display.printFormatted(rank + ". " + formatLines(p));
+//	    }
+        for (int i = 0; i < 5; i++) {
+            System.out.format(leftAlignFormat,i+1, "some data" + i, i * i, "master");
+            System.out.format("+.....................................+................................+.....................................+%n");     
         }
+        //System.out.format("+-----------------+------+%n");
 
+     
         Display.printFooter();
     }
 
