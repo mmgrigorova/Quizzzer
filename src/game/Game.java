@@ -27,6 +27,7 @@ public abstract class Game implements Finishable, Playable {
         //this.gameMode = gameMode;
     }
 
+    
     // load players and questions
     public static void loadData() {
 

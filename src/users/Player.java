@@ -11,10 +11,7 @@ public class Player extends User implements Punishable {
 	private int points;
 	private List<Badge> badges;
 	private HashMap<QuestionCategory, Integer> answeredQuestions;
-	
-	public List<Badge> getBadges() {
-		return badges;
-	}
+
 
 	// if there's no such player, create a new player
 	public Player(String userName) {
@@ -44,6 +41,11 @@ public class Player extends User implements Punishable {
 		points += pointsToAdd;
 	}
 
+	
+	public List<Badge> getBadges() {
+		return badges;
+	}
+	
 	@Override
 	public void decreasePoints(int pointsToDeduct) {
 		if (points <= pointsToDeduct) {
@@ -97,7 +99,7 @@ public class Player extends User implements Punishable {
 					System.out.println("Congratulations, " + userName + "! "
 										+ "You've answered 15 " + category.toString() + " questions!"
 										+ "You've been awarded the '" + category.toString() + " Master' badge.");
-					Badge master = new Badge(category.toString(),
+					Badge master = new Badge(categoryName,
 											"Answered 15 or more " + category.toString() + " questions.");
 					badges.add(master);
 				}

@@ -1,6 +1,8 @@
 package users;
 
-public class Badge {
+import java.io.Serializable;
+
+public class Badge implements Serializable{
 	private String badgeName;
 	private String badgeDescription;
 	
@@ -16,6 +18,5 @@ public class Badge {
 	public String getBadgeDescription() {
 		return badgeDescription;
 	}
-	
-	
+
 }

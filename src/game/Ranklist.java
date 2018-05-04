@@ -31,23 +31,19 @@ public class Ranklist {
 
         Display.printHeader("Player Ranklist");
         
-        String leftAlignFormat = "| %-3s | %-35s | %-30s | %-35s |%n";
+        String leftAlignFormat = "| %-4s | %-20s | %-10s | %-63s |%n";
 
-        System.out.format("+......+..............................+................................+.....................................+%n");
-        System.out.format(leftAlignFormat,"Rank", "Player Name", "Points", "Badges");
+        Display.drawLine();
+        System.out.format(leftAlignFormat,"RANK", "PLAYER NAME", "POINTS", "BADGES");
         
-    
-      
-        
-        System.out.format("+.....................................+................................+.....................................+%n");        
-//	    for (Player p : players) {
-//	    	int rank = players.indexOf(p) + 1;
-//	    	System.out.format(leftAlignFormat, "some data" + i, i * i, "master");
-//	    	Display.printFormatted(rank + ". " + formatLines(p));
-//	    }
+        Display.drawLine();   
+	    for (Player p : players) {
+	    	int rank = players.indexOf(p) + 1;
+	    	 System.out.format(leftAlignFormat,rank, p.getUserName(), p.getPoints(), p.getBadges());
+	         Display.drawLine();  
+	    }
         for (int i = 0; i < 5; i++) {
-            System.out.format(leftAlignFormat,i+1, "some data" + i, i * i, "master");
-            System.out.format("+.....................................+................................+.....................................+%n");     
+           
         }
         //System.out.format("+-----------------+------+%n");
 

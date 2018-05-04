@@ -24,7 +24,17 @@ public class StartQuizzzer {
 //    
 //  
 //      FileOutputStream f = null;
-//      ObjectOutputStream o = null;
+//      ObjectOutputStream o = null;      
+//      f = new FileOutputStream("Players.txt");
+//      o = new ObjectOutputStream(f); 
+//      
+//      Player p1 = new Player("Yasen");
+//      Player p2 = new Player("Masha");
+//      
+//      o.writeObject(p1);
+//      o.writeObject(p2);
+//      f.close();
+//      o.close();
 // 
 //      f = new FileOutputStream("Questions.txt");
 //      o = new ObjectOutputStream(f); 
@@ -93,15 +103,6 @@ public class StartQuizzzer {
 //       ADD PLAYERS
       
       
-//      f = new FileOutputStream("Players.txt");
-//      o = new ObjectOutputStream(f); 
-//      
-//      Player p1 = new Player("Yasen");
-//      Player p2 = new Player("Masha");
-//      
-//      o.writeObject(p1);
-//      o.writeObject(p2);
-//      f.close();
-//      o.close();
+
     }
 }
