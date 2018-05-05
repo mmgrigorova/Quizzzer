@@ -125,7 +125,7 @@ public class SinglePlayerGame extends Game {
     public void endGame() {
         Display.drawLine("*");
         String finalMessage = String.format("Congratulations! You have answered correctly to %d questions and have won %d " +
-                "points!\n", correctAnswers, gamePointsPlayer);;
+                "points!\n", correctAnswers, gamePointsPlayer);
 //        if (correctAnswers >= MINIMUM_CORRECT_ANSWERS_FOR_WIN) {
 //            addPointsToPlayer(player, gamePointsPlayer);
 //            finalMessage = String.format("Congratulations! You have answered correctly to %d questions and have won %d " +
@@ -134,6 +134,7 @@ public class SinglePlayerGame extends Game {
 //            finalMessage = String.format("Oops! You need %d correct answers in order to win and you have only" +
 //                    " %d. Try again!",MINIMUM_CORRECT_ANSWERS_FOR_WIN, correctAnswers);
 //        }
+        addPointsToPlayer(player, gamePointsPlayer);
         Display.printFormatted(finalMessage);
         player.checkForBadges(gamePointsPlayer);
         Display.skipLine();

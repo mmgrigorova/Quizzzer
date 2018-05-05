@@ -18,5 +18,10 @@ public class Badge implements Serializable{
 	public String getBadgeDescription() {
 		return badgeDescription;
 	}
+	
+	@Override
+	public String toString() {
+		return String.format("%s " , badgeName);
+	}
 
 }
