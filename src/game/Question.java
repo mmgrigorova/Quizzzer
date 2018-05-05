@@ -2,7 +2,7 @@ package game;
 
 import java.io.Serializable;
 
-public abstract class Question implements Rateable, Serializable, Validateable {
+public abstract class Question implements Serializable, Validateable {
 	private String questionTitle;
 	protected int correctAnswer;
 	private QuestionCategory category;

@@ -4,12 +4,14 @@ import utilities.Display;
 
 import java.util.HashMap;
 
-public class ClosedQuestion extends Question implements Validateable{
+public class ClosedQuestion extends Question implements Validateable, Rateable{
 	
 	private HashMap<Integer, String> possibleAnswers;
+	int rating;
 	
 	public ClosedQuestion() {
 		super();
+		rating = 0;
 	}
 
 	public ClosedQuestion(String questionTitle, QuestionCategory category,
@@ -20,16 +22,18 @@ public class ClosedQuestion extends Question implements Validateable{
 		possibleAnswers.put(2, b);
 		possibleAnswers.put(3, c);
 		possibleAnswers.put(4, d);
+		rating = 0;
 	}
 	
 	@Override 
 	public String toString() {
 		String spaces = "    ";
-		return super.toString() + String.format("A. %s" + spaces + "B. %s" + spaces + "C. %s" + spaces + "D. %s",
+		return super.toString() + String.format("A. %s" + spaces + "B. %s" + spaces + "C. %s" + spaces + "D. %s" + "\nRating: %d",
 												possibleAnswers.get(1),
 												possibleAnswers.get(2),
 												possibleAnswers.get(3),
-												possibleAnswers.get(4));
+												possibleAnswers.get(4),
+												rating);
 	}
 
 	@Override
@@ -43,6 +47,11 @@ public class ClosedQuestion extends Question implements Validateable{
 			Display.skipLine();
 			return 0;
 		}
+	}
+
+	@Override
+	public void rate() {
+		rating++;
 	}
 	
 }

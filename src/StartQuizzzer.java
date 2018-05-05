@@ -38,7 +38,7 @@ public class StartQuizzzer {
 // 
 //      f = new FileOutputStream("Questions.txt");
 //      o = new ObjectOutputStream(f); 
-//     sports questions
+//     //sports questions
 //      Question q = new ClosedQuestion("Which country won the 2014 FIFA World Cup?",QuestionCategory.SPORTS,
 //                                      "Brazil","Germany","Italy","Spain", 2);
 //      Question q1 = new ClosedQuestion("Which country won the first ever soccer World Cup in 1930?",QuestionCategory.SPORTS,
@@ -100,8 +100,7 @@ public class StartQuizzzer {
 //      Question q31 = new OpenQuestion("What was the year when Nazi Germany invaded Poland - the WW2 brake out?", 1939, QuestionCategory.HIST);
 //      Question q32 = new OpenQuestion("What was the year of the Bulgarian Declaration of Independence?", 1908, QuestionCategory.HIST);
 //      Question q33 = new OpenQuestion("Which century was Bulgaria founded?",7, QuestionCategory.HIST);
-//      Question q34 = new OpenQuestion("The computation power of the humandkind when we landed on the moon was less than what it is today in a single phone.\r\n" + 
-//      		"What was the year when USA landed its spaceship with astronauts on the moon?", 1969, QuestionCategory.HIST);
+//      Question q34 = new OpenQuestion( "What was the year when USA landed its spaceship with astronauts on the moon?", 1969, QuestionCategory.HIST);
 //      Question q35 = new OpenQuestion("When was the first time a human - the russian Juri Gagarin flew in outer space?", 1961, QuestionCategory.HIST);
 //      Question q36 = new OpenQuestion("The Cuban Missile Crisis was a period of two weeks when the world was at its closest to a global nuclear war?\r\n" + 
 //      		"What was the year of it?", 1962, QuestionCategory.HIST);
