@@ -142,7 +142,7 @@ public abstract class Game implements Finishable, Playable {
         questions.add(newQuestion);
     }
 
-    public void welcomePlayer(String playerName, Player player) {
+    public static void welcomePlayer(String playerName, Player player) {
         Display.printTitle("** Hello, " + playerName + "! You have " + player.getPoints() +
                 " points. Have fun playing Quizzzer! **");
         Display.drawLine(".");
@@ -152,10 +152,6 @@ public abstract class Game implements Finishable, Playable {
         player.increasePoints(points);
     }
 
-    InGameQuestionList initializeQuestionList() {
-        // TODO Auto-generated method stub
-        return null;
-    }
 
     public void addPlayer(Player p) {
         Game.players.add(p);

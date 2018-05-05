@@ -8,22 +8,7 @@ import java.util.List;
 public class Ranklist {
     private static int LINE_LENGTH = 70;
 
-     //sort list of players by points and write it on console
-//    public static void showRanklist(List<Player> players) {
-//        players.sort((p1, p2) -> {
-//            return p2.getPoints() - p1.getPoints(); // Ascending
-//        });
-//
-//        Display.printHeader("Player Ranklist");
-//
-//        for (Player p : players) {
-//            int rank = players.indexOf(p) + 1;
-//            Display.printFormatted(rank + ". " + formatLines(p));
-//        }
-//
-//        Display.printFooter();
-//    }
-    
+
     public static void showRanklist(List<Player> players) {
         players.sort((p1, p2) -> {
             return p2.getPoints() - p1.getPoints(); // Ascending
@@ -31,23 +16,20 @@ public class Ranklist {
 
         Display.printHeader("Player Ranklist");
         
-        String leftAlignFormat = "| %-4s | %-20s | %-10s | %-63s |%n";
+        String leftAlignFormat = "| %-4s | %-20s | %-10s | %-93s |%n";
 
-        Display.drawLine();
         System.out.format(leftAlignFormat,"RANK", "PLAYER NAME", "POINTS", "BADGES");
         
         Display.drawLine();   
 	    for (Player p : players) {
 	    	int rank = players.indexOf(p) + 1;
 	    	 System.out.format(leftAlignFormat,rank, p.getUserName(), p.getPoints(), p.getBadges());
-	         Display.drawLine();  
+	         Display.drawLine("-");
 	    }
         for (int i = 0; i < 5; i++) {
            
         }
-        //System.out.format("+-----------------+------+%n");
 
-     
         Display.printFooter();
     }
 

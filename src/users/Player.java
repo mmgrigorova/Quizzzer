@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import game.QuestionCategory;
+import utilities.Display;
 
 public class Player extends User implements Punishable {
 	private int points;
@@ -76,8 +77,7 @@ public class Player extends User implements Punishable {
 				}
 			}
 			if (!hasPerfectGameBadge) {
-				System.out.println("Congatulations, " + userName + "! " 
-									+ "You've scored 100 points in a signle game! "
+				Display.printFormatted("You've scored 100 points in a single game! "
 									+ "You've been awarded the 'Perfect Game' badge.");
 				Badge perfectGame = new Badge("Perfect Game", "Score 100 points in a single game.");
 				badges.add(perfectGame);

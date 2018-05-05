@@ -43,17 +43,17 @@ public class GameLauncher {
                 case 4:
                 	String playerName = getPlayerName(); 
                 	if (playerName.equals("admin")) {
-                		addQuestion();
+                		addNewQuestion();
                 		break;
                 	}
                 	for (Player p : Game.players) {
                 		if (p.getUserName().equals(playerName) &&
                 			p instanceof VeteranPlayer) {
-                			addQuestion();
+                			addNewQuestion();
                 			break;
                 		}
                 	}
-                    System.out.println("Sorry, you do not have the required privliges to add questions.");
+                    System.out.println("Sorry, you do not have the required privileges to add questions.");
                     break;
                 case 5:
                     for (Question q : Game.questions) {
@@ -90,7 +90,6 @@ public class GameLauncher {
                 	break;
                 case 7:
                     Game.saveGame();
-                    //System.exit(0);
             }
         } while (selectedMenuOption != 7);
     }
@@ -115,7 +114,7 @@ public class GameLauncher {
             }
             
             game = new SinglePlayerGame(category, playerName);
-            //Game.welcomePlayer(playerName, ((SinglePlayerGame) game).getPlayer());
+            Game.welcomePlayer(playerName, ((SinglePlayerGame) game).getPlayer());
             game.playGame();
         } else {
             String playerName1 = getPlayerName();
@@ -150,7 +149,9 @@ public class GameLauncher {
     	return false;
     }
 
-    private void addQuestion() {
+
+    //TODO Move to Question classes
+    private void addNewQuestion() {
         Question newQuestion = null;
 
         QuestionCategory category = getCategory();
