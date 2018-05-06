@@ -95,7 +95,6 @@ public class GameLauncher {
     }
 
     private void startGame() {
-        //clearScreen();
         Display.printTitle("Please select game mode: ");
         Menu gameModes = new Menu("Single Player", "Double Player");
         gameModes.displayMenu();
@@ -150,7 +149,6 @@ public class GameLauncher {
     }
 
 
-    //TODO Move to Question classes
     private void addNewQuestion() {
         Question newQuestion = null;
 
@@ -262,35 +260,6 @@ public class GameLauncher {
         	}
         }
         return selected;
-    }
-    
-    //TODO Try clear Screen methods
-    private static void clearScreen() {
-
-//        System.out.print('\u000C');
-//        for (int i = 0; i < 25; i++) {
-//            System.out.println();
-//        }
-//        System.out.print("\033[H\033[2J");
-//        System.out.flush();
-
-//        try
-//        {
-//            final String os = System.getProperty("os.name");
-//
-//            if (os.contains("Windows"))
-//            {
-//                Runtime.getRuntime().exec("cls");
-//            }
-//            else
-//            {
-//                Runtime.getRuntime().exec("clear");
-//            }
-//        }
-//        catch (final Exception e)
-//        {
-//            //  Handle any exceptions.
-//        }
     }
 
 
