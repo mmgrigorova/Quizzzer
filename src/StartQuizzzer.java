@@ -95,18 +95,18 @@ public class StartQuizzzer {
 //      Question q29 = new ClosedQuestion("Which was the only country in the world to save its citizen of jewish descend from Hitler's gas chambers?",QuestionCategory.HIST,
 //              "Hungary","Poland","France","Bulgaria", 4);
 //      
-//      Question q30 = new OpenQuestion("Krum was a bulgarian leader known to have Byzantine Emperor Nikephoros skull made to a glass from which he drank.\r\n" + 
+//      Question q30 = new OpenQuestion("Krum was a bulgarian leader known to have Byzantine Emperor Nikephoros skull made to a glass from which he drank.\n" +
 //      		"What was the year at which his reign over Bulgaria started?", 803, QuestionCategory.HIST);
 //      Question q31 = new OpenQuestion("What was the year when Nazi Germany invaded Poland - the WW2 brake out?", 1939, QuestionCategory.HIST);
 //      Question q32 = new OpenQuestion("What was the year of the Bulgarian Declaration of Independence?", 1908, QuestionCategory.HIST);
 //      Question q33 = new OpenQuestion("Which century was Bulgaria founded?",7, QuestionCategory.HIST);
-//      Question q34 = new OpenQuestion("The computation power of the humandkind when we landed on the moon was less than what it is today in a single phone.\r\n" + 
+//      Question q34 = new OpenQuestion("The computation power of the humankind when we landed on the moon was less than what it is today in a single phone.\n" +
 //      		"What was the year when USA landed its spaceship with astronauts on the moon?", 1969, QuestionCategory.HIST);
 //      Question q35 = new OpenQuestion("When was the first time a human - the russian Juri Gagarin flew in outer space?", 1961, QuestionCategory.HIST);
-//      Question q36 = new OpenQuestion("The Cuban Missile Crisis was a period of two weeks when the world was at its closest to a global nuclear war?\r\n" + 
+//      Question q36 = new OpenQuestion("The Cuban Missile Crisis was a period of two weeks when the world was at its closest to a global nuclear war?\n" +
 //      		"What was the year of it?", 1962, QuestionCategory.HIST);
 //      Question q37 = new OpenQuestion("United States of America had a fresh start without holding a centuries old grudges like old european states. When was it founded?", 1776, QuestionCategory.HIST);
-//      Question q38 = new OpenQuestion("Pythagoras ws an antient greek philosopher and mathematitian. What century BC was he born?",6, QuestionCategory.HIST);
+//      Question q38 = new OpenQuestion("Pythagoras ws an ancient greek philosopher and mathematician. What century BC was he born?",6, QuestionCategory.HIST);
 //      Question q39 = new OpenQuestion("How many times was the pope a woman?", 1, QuestionCategory.HIST);
 //      
 //      list.add(q);
