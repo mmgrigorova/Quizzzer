@@ -1,8 +1,8 @@
 package utilities;
 
 public class Display {
-    private static int SCREEN_WIDTH = 140;
-    private static int START_PADDING = 8;
+    private static final int SCREEN_WIDTH = 140;
+    private static final int START_PADDING = 8;
 
     public static void drawLine() {
         System.out.printf("|");
