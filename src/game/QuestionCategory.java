@@ -18,6 +18,7 @@ public enum QuestionCategory {
         this.textRepresentation = textRepresentation;
     }
 
+    // static initialization blocks get run when the class gets loaded.
     static {
         array = new String[QuestionCategory.values().length];
         for (QuestionCategory value : QuestionCategory.values())
