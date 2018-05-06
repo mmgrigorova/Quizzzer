@@ -11,7 +11,6 @@ import java.util.Scanner;
 
 
 public class SinglePlayerGame extends Game {
-    private static final int MINIMUM_CORRECT_ANSWERS_FOR_WIN = 5;
     private InGameQuestionList questionList;
     private Player player;
     private int gamePointsPlayer;
@@ -46,7 +45,6 @@ public class SinglePlayerGame extends Game {
         			player = new VeteranPlayer(playerName, points, badges);
         			it.remove();
         			Game.players.add(player);
-        			//System.out.println(player.getClass().getName());
         		}
 				break;
 			}
@@ -55,8 +53,6 @@ public class SinglePlayerGame extends Game {
         	player = new Player(playerName);
         	Game.players.add(player);
         }
-     
-        welcomePlayer(playerName,player);
     }
 
     public void playGame() {
@@ -68,11 +64,19 @@ public class SinglePlayerGame extends Game {
 			Display.skipLine();
 
 			int playerAnswer = getPlayersAnswer();
+			while (playerAnswer == 5) {
+				if (currentQuestion instanceof Rateable) {
+					((Rateable)currentQuestion).rate();
+					Display.printFormatted("Question rating increased!");
+					playerAnswer = getPlayersAnswer();
+				}
+			} 
 			int pointsWon = currentQuestion.validateAnswer(playerAnswer);
 			
 			if (pointsWon > 0) {
 				addPointsToGame(pointsWon);
 				correctAnswers++;
+				player.increaseAnsweredQuestions(currentQuestion.getCategory());
 			}
 			currentQuestionNumber += 1;
     	}
@@ -84,7 +88,7 @@ public class SinglePlayerGame extends Game {
     }
     
      protected int getPlayersAnswer() {
-        System.out.print("> Your answer: ");
+        System.out.print("> Your answer(press \'l\' to rate question): ");
         String playerInput = in.nextLine();
         Display.skipLine();
 
@@ -102,19 +106,15 @@ public class SinglePlayerGame extends Game {
 			case "d":
 				answer = 4;
 				break;
+			case "l":
+				answer = 5;
+				break;
 			default:
 				System.out.printf("'%s' is not a valid option. Please make a new entry.\n", playerInput);
 	            getPlayersAnswer();
 		}
         return answer;
     }
-
-//    private Badge checkForBadge(Player player) {
-//        return null;
-//    }
-
-//    private void addBadge(Player player, Badge badge) {
-//    }
 
     private void addPointsToGame(int questionPoints) {
         gamePointsPlayer += questionPoints;
@@ -123,16 +123,11 @@ public class SinglePlayerGame extends Game {
     @Override
     public void endGame() {
         Display.drawLine("*");
-        String finalMessage;
-        if (correctAnswers >= MINIMUM_CORRECT_ANSWERS_FOR_WIN) {
-            addPointsToPlayer(player, gamePointsPlayer);
-            finalMessage = String.format("Congratulations! You have answered correctly to %d questions and have won %d " +
-                            "points!\n", correctAnswers, gamePointsPlayer);
-        } else {
-            finalMessage = String.format("Oops! You need %d correct answers in order to win and you have only" +
-                    " %d. Try again!",MINIMUM_CORRECT_ANSWERS_FOR_WIN, correctAnswers);
-        }
+        String finalMessage = String.format("Congratulations, %s! You have answered correctly to %d questions and " +
+                "have won %d points!\n", player.getUserName(), correctAnswers, gamePointsPlayer);
+        addPointsToPlayer(player, gamePointsPlayer);
         Display.printFormatted(finalMessage);
+        player.checkForBadges(gamePointsPlayer);
         Display.skipLine();
         Display.drawLine("*");
     }

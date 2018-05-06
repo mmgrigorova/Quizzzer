@@ -3,8 +3,8 @@ package game;
 public enum QuestionCategory {
     RANDOM(1, "Random"),
     GEO(2, "Geography"),
-    TECH(3, "Technology"),
-    TV(4, "TV Shows"),
+    HIST(3, "History"),
+    TECH(4, "Technology"),
 	SPORTS(5, "Sports"),
 	BONUS(6, "Bonus");
 

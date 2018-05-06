@@ -53,28 +53,37 @@ public class DoublePlayerGame extends Game {
 		for (Question currentQuestion : questionList.getQuestions()) {
 			Display.drawPlayerHeader(player1.getUserName(), gamePointsPlayer1, player2.getUserName(),gamePointsPlayer2);
 			
-			System.out.println(currentQuestion.toString());
-			
-			System.out.print(player1.getUserName() + ": ");
+			Display.printFormatted(currentQuestion.toString());
+
+			System.out.print("> " + player1.getUserName() + ": ");
 			int player1answer = getPlayersAnswer();
-			System.out.print(player2.getUserName() + ": ");
+			System.out.print("> " + player2.getUserName() + ": ");
 			int player2answer = getPlayersAnswer();
 			
 			int player1score = currentQuestion.validateAnswer(player1answer);
 			int player2score = currentQuestion.validateAnswer(player2answer);
 			
-			System.out.println("Correct answer is: " + currentQuestion.getCorrectAnswer());
+			if (player1score == 0) {
+				// answer is correct, increase answers
+				player1.increaseAnsweredQuestions(currentQuestion.getCategory());
+			}
+			if (player2score == 0) {
+				// answer is correct, increase answers
+				player2.increaseAnsweredQuestions(currentQuestion.getCategory());
+			}
+
+			Display.printFormatted("Correct answer is: " + currentQuestion.getCorrectAnswer());
 			
 			if (player1score > player2score) {
-				System.out.println(player2.getUserName() + " was closer to the answer.");
+				Display.printFormatted(player2.getUserName() + " was closer to the answer.");
 				gamePointsPlayer2 += 10;
 			} 
 			else if (player1score < player2score) {
-				System.out.println(player1.getUserName() + " was closer to the answer.");
+				Display.printFormatted(player1.getUserName() + " was closer to the answer.");
 				gamePointsPlayer1 += 10;
 			} 
 			else {
-				System.out.println("Both players are correct.");
+				Display.printFormatted("Both players are correct.");
 				gamePointsPlayer1 += 10;				
 				gamePointsPlayer2 += 10;
 			}
@@ -88,19 +97,23 @@ public class DoublePlayerGame extends Game {
 		addPointsToPlayer(player2, gamePointsPlayer2);
 		
 		if (gamePointsPlayer1 > gamePointsPlayer2) {
-			System.out.printf("%s has won!\n%s has earned %d points, while %s has earned %d points.\n",
-								player1.getUserName(), player1.getUserName(), gamePointsPlayer1,
-								player2.getUserName(), gamePointsPlayer2);
+			String message = String.format("%s has won!\n%s has earned %d points, while %s has earned %d points.\n",
+					player1.getUserName(), player1.getUserName(), gamePointsPlayer1,
+					player2.getUserName(), gamePointsPlayer2);
+			Display.printFormatted(message);
 		} 
 		else if (gamePointsPlayer1 < gamePointsPlayer2) {
-			System.out.printf("%s has won!\n%s has earned %d points, while %s has earned %d points.\n",
+			String message = String.format("%s has won!\n%s has earned %d points, while %s has earned %d points.\n",
 					player2.getUserName(), player2.getUserName(), gamePointsPlayer2,
 					player1.getUserName(), gamePointsPlayer1);
+			Display.printFormatted(message);
 		}
 		else {
-			System.out.println("The game ends as a draw. Both players have earned " + gamePointsPlayer1 + " points.");
+			Display.printFormatted("The game ends as a draw. Both players have earned " + gamePointsPlayer1 + " points.");
 		}
 		
+		player1.checkForBadges(gamePointsPlayer1);
+		player2.checkForBadges(gamePointsPlayer2);
 	}
 
 	@Override
@@ -111,7 +124,7 @@ public class DoublePlayerGame extends Game {
 			 int answer = Integer.parseInt(playerInput);
 			 return answer;
 		 } catch (NumberFormatException e) {
-			 System.out.println("Invalid input, try again");
+			 System.out.println("> Invalid input, try again");
 			 return getPlayersAnswer();
 		 }
 	}

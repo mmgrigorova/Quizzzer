@@ -43,17 +43,17 @@ public class GameLauncher {
                 case 4:
                 	String playerName = getPlayerName(); 
                 	if (playerName.equals("admin")) {
-                		addQuestion();
+                		addNewQuestion();
                 		break;
                 	}
                 	for (Player p : Game.players) {
                 		if (p.getUserName().equals(playerName) &&
                 			p instanceof VeteranPlayer) {
-                			addQuestion();
+                			addNewQuestion();
                 			break;
                 		}
                 	}
-                    System.out.println("Sorry, you do not have the required privliges to add questions.");
+                    System.out.println("Sorry, you do not have the required privileges to add questions.");
                     break;
                 case 5:
                     for (Question q : Game.questions) {
@@ -90,13 +90,11 @@ public class GameLauncher {
                 	break;
                 case 7:
                     Game.saveGame();
-                    //System.exit(0);
             }
         } while (selectedMenuOption != 7);
     }
 
     private void startGame() {
-        //clearScreen();
         Display.printTitle("Please select game mode: ");
         Menu gameModes = new Menu("Single Player", "Double Player");
         gameModes.displayMenu();
@@ -115,7 +113,7 @@ public class GameLauncher {
             }
             
             game = new SinglePlayerGame(category, playerName);
-            //Game.welcomePlayer(playerName, ((SinglePlayerGame) game).getPlayer());
+            Game.welcomePlayer(playerName, ((SinglePlayerGame) game).getPlayer());
             game.playGame();
         } else {
             String playerName1 = getPlayerName();
@@ -150,7 +148,8 @@ public class GameLauncher {
     	return false;
     }
 
-    private void addQuestion() {
+
+    private void addNewQuestion() {
         Question newQuestion = null;
 
         QuestionCategory category = getCategory();
@@ -201,35 +200,35 @@ public class GameLauncher {
         //add question to list
         Game.addQuestion(newQuestion);
 
-        // append the new question to file
-        FileOutputStream fout = null;
-        ObjectOutputStream oos = null;
-
-        try {
-            fout = new FileOutputStream("Questions.txt", true);
-            oos = new AppendingObjectOutputStream(fout);
-
-            oos.writeObject(newQuestion);
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found");
-        } catch (IOException e) {
-            System.out.println("Error initializing stream");
-        } finally {
-            if (fout != null) {
-                try {
-                    fout.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (oos != null) {
-                try {
-                    oos.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+//        // append the new question to file
+//        FileOutputStream fout = null;
+//        ObjectOutputStream oos = null;
+//
+//        try {
+//            fout = new FileOutputStream("Questions.txt", true);
+//            oos = new AppendingObjectOutputStream(fout);
+//
+//            oos.writeObject(newQuestion);
+//        } catch (FileNotFoundException e) {
+//            System.out.println("File not found");
+//        } catch (IOException e) {
+//            System.out.println("Error initializing stream");
+//        } finally {
+//            if (fout != null) {
+//                try {
+//                    fout.close();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//            if (oos != null) {
+//                try {
+//                    oos.close();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }
     }
 
     private QuestionCategory getCategory() {
@@ -261,35 +260,6 @@ public class GameLauncher {
         	}
         }
         return selected;
-    }
-    
-    //TODO Try clear Screen methods
-    private static void clearScreen() {
-
-//        System.out.print('\u000C');
-//        for (int i = 0; i < 25; i++) {
-//            System.out.println();
-//        }
-//        System.out.print("\033[H\033[2J");
-//        System.out.flush();
-
-//        try
-//        {
-//            final String os = System.getProperty("os.name");
-//
-//            if (os.contains("Windows"))
-//            {
-//                Runtime.getRuntime().exec("cls");
-//            }
-//            else
-//            {
-//                Runtime.getRuntime().exec("clear");
-//            }
-//        }
-//        catch (final Exception e)
-//        {
-//            //  Handle any exceptions.
-//        }
     }
 
 

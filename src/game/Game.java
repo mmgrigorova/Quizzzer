@@ -27,6 +27,7 @@ public abstract class Game implements Finishable, Playable {
         //this.gameMode = gameMode;
     }
 
+    
     // load players and questions
     public static void loadData() {
 
@@ -135,13 +136,42 @@ public abstract class Game implements Finishable, Playable {
                 }
             }
         }
+        
+        
+        try {
+            fout = new FileOutputStream("Questions.txt");
+            oos = new ObjectOutputStream(fout);
+
+            for (Question question : questions) {
+                oos.writeObject(question);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found");
+        } catch (IOException e) {
+            System.out.println("Error initializing stream");
+        } finally {
+            if (fout != null) {
+                try {
+                    fout.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (oos != null) {
+                try {
+                    oos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
     public static void addQuestion(Question newQuestion) {
         questions.add(newQuestion);
     }
 
-    public void welcomePlayer(String playerName, Player player) {
+    public static void welcomePlayer(String playerName, Player player) {
         Display.printTitle("** Hello, " + playerName + "! You have " + player.getPoints() +
                 " points. Have fun playing Quizzzer! **");
         Display.drawLine(".");
@@ -151,10 +181,6 @@ public abstract class Game implements Finishable, Playable {
         player.increasePoints(points);
     }
 
-    InGameQuestionList initializeQuestionList() {
-        // TODO Auto-generated method stub
-        return null;
-    }
 
     public void addPlayer(Player p) {
         Game.players.add(p);
