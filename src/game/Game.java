@@ -136,6 +136,35 @@ public abstract class Game implements Finishable, Playable {
                 }
             }
         }
+        
+        
+        try {
+            fout = new FileOutputStream("Questions.txt");
+            oos = new ObjectOutputStream(fout);
+
+            for (Question question : questions) {
+                oos.writeObject(question);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found");
+        } catch (IOException e) {
+            System.out.println("Error initializing stream");
+        } finally {
+            if (fout != null) {
+                try {
+                    fout.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (oos != null) {
+                try {
+                    oos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
     public static void addQuestion(Question newQuestion) {

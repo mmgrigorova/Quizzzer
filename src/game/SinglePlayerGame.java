@@ -64,6 +64,13 @@ public class SinglePlayerGame extends Game {
 			Display.skipLine();
 
 			int playerAnswer = getPlayersAnswer();
+			while (playerAnswer == 5) {
+				if (currentQuestion instanceof Rateable) {
+					((Rateable)currentQuestion).rate();
+					Display.printFormatted("Question rating increased!");
+					playerAnswer = getPlayersAnswer();
+				}
+			} 
 			int pointsWon = currentQuestion.validateAnswer(playerAnswer);
 			
 			if (pointsWon > 0) {
@@ -81,7 +88,7 @@ public class SinglePlayerGame extends Game {
     }
     
      protected int getPlayersAnswer() {
-        System.out.print("> Your answer: ");
+        System.out.print("> Your answer(press \'l\' to rate question): ");
         String playerInput = in.nextLine();
         Display.skipLine();
 
@@ -98,6 +105,9 @@ public class SinglePlayerGame extends Game {
 				break;
 			case "d":
 				answer = 4;
+				break;
+			case "l":
+				answer = 5;
 				break;
 			default:
 				System.out.printf("'%s' is not a valid option. Please make a new entry.\n", playerInput);

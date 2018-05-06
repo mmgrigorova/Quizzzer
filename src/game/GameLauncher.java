@@ -200,35 +200,35 @@ public class GameLauncher {
         //add question to list
         Game.addQuestion(newQuestion);
 
-        // append the new question to file
-        FileOutputStream fout = null;
-        ObjectOutputStream oos = null;
-
-        try {
-            fout = new FileOutputStream("Questions.txt", true);
-            oos = new AppendingObjectOutputStream(fout);
-
-            oos.writeObject(newQuestion);
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found");
-        } catch (IOException e) {
-            System.out.println("Error initializing stream");
-        } finally {
-            if (fout != null) {
-                try {
-                    fout.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (oos != null) {
-                try {
-                    oos.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+//        // append the new question to file
+//        FileOutputStream fout = null;
+//        ObjectOutputStream oos = null;
+//
+//        try {
+//            fout = new FileOutputStream("Questions.txt", true);
+//            oos = new AppendingObjectOutputStream(fout);
+//
+//            oos.writeObject(newQuestion);
+//        } catch (FileNotFoundException e) {
+//            System.out.println("File not found");
+//        } catch (IOException e) {
+//            System.out.println("Error initializing stream");
+//        } finally {
+//            if (fout != null) {
+//                try {
+//                    fout.close();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//            if (oos != null) {
+//                try {
+//                    oos.close();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }
     }
 
     private QuestionCategory getCategory() {
