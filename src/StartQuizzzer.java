@@ -228,11 +228,11 @@ public class StartQuizzzer {
                 "Steve Jobs",
                 "Steve Wozniak",
                 "There was never a person on the logo", 1);
-        Question q64 = new ClosedQuestion("Which person has been featured on the first Apple logo?", QuestionCategory.TECH,
-                "Sir Isaac Newton",
-                "Steve Jobs",
-                "Steve Wozniak",
-                "There was never a person on the logo", 1);
+        Question q64 = new ClosedQuestion("Flickr has been owned by which corporation?", QuestionCategory.TECH,
+                "Yahoo",
+                "Google",
+                "Facebook",
+                "LinkedIn", 1);
         Question q65 = new ClosedQuestion("Which American state can be typed using only one row of the QWERTY keyboard?", QuestionCategory.TECH,
                 "Miami",
                 "Texas",
