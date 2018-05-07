@@ -47,9 +47,9 @@ public abstract class Game implements Finishable, Playable {
                 }
             }
         } catch (FileNotFoundException e) {
-            System.out.println("File not found");
+            System.out.println("Players file not found");
         } catch (IOException e) {
-            System.out.println("Error initializing stream");
+            System.out.println("Error initializing Players stream");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } finally {
@@ -80,9 +80,9 @@ public abstract class Game implements Finishable, Playable {
                 }
             }
         } catch (FileNotFoundException e) {
-            System.out.println("File not found");
+            System.out.println("Questions file not found");
         } catch (IOException e) {
-            System.out.println("Error initializing stream");
+            System.out.println("Error initializing Questions stream");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } finally {

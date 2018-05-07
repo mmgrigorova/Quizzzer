@@ -28,12 +28,11 @@ public class ClosedQuestion extends Question implements Validateable, Rateable{
 	@Override 
 	public String toString() {
 		String spaces = "    ";
-		return super.toString() + String.format("A. %s" + spaces + "B. %s" + spaces + "C. %s" + spaces + "D. %s" + "\nRating: %d",
+		return super.toString() + String.format("A. %s" + spaces + "B. %s" + spaces + "C. %s" + spaces + "D. %s",
 												possibleAnswers.get(1),
 												possibleAnswers.get(2),
 												possibleAnswers.get(3),
-												possibleAnswers.get(4),
-												rating);
+												possibleAnswers.get(4));
 	}
 
 	@Override
@@ -49,9 +48,14 @@ public class ClosedQuestion extends Question implements Validateable, Rateable{
 		}
 	}
 
+	public int getRating(){
+		return rating;
+	}
+
 	@Override
 	public void rate() {
 		rating++;
 	}
+
 	
 }

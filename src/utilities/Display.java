@@ -38,6 +38,14 @@ public class Display {
         drawLine(".");
     }
 
+    public static void drawQuestionHeader(String leftTop, String leftBottom, String rightTop, String rightBottom) {
+        String top = String.format("%1$-10s %2$80s", leftTop, rightTop);
+        String bottom = String.format("%1$-10s %2$80s", leftBottom, rightBottom);
+        printFormatted(top);
+        printFormatted(bottom);
+
+    }
+
     public static void showGameName() {
         System.out.printf("   _    _    _    _    _    _    _    _  \n" +
                 "  / \\  / \\  / \\  / \\  / \\  / \\  / \\  / \\ \n" +

@@ -58,7 +58,11 @@ public class SinglePlayerGame extends Game {
     public void playGame() {
     	for (Question currentQuestion : questionList.getQuestions()) {
 			displayGameInformation(player.getUserName(), gamePointsPlayer);
-            Display.printFormatted("Question " + String.valueOf(currentQuestionNumber));
+            int questionRating = 0;
+            if (currentQuestion instanceof Rateable){
+            	questionRating = ((ClosedQuestion)currentQuestion).getRating();
+			}
+            Display.drawQuestionHeader("Question", String.valueOf(currentQuestionNumber), "Rating", String.valueOf(questionRating));
             Display.skipLine();
 			Display.printFormatted(currentQuestion.toString());
 			Display.skipLine();
@@ -88,7 +92,7 @@ public class SinglePlayerGame extends Game {
     }
     
      protected int getPlayersAnswer() {
-        System.out.print("> Your answer(press \'l\' to rate question): ");
+        System.out.print("> Your answer (or press \'l\' to upvote question): ");
         String playerInput = in.nextLine();
         Display.skipLine();
 
