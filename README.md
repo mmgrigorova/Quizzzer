@@ -2,85 +2,33 @@
 
 Quizzzer is a console trivia game developed by team Loki. This is the first project for Telerik Academy Alpha - Java 2018.
 
-## Gameplay
+Team Loki: 
+ * Ясен Стоилов(Yasen_Stoilov)
+ * Атанас Велев(velevatanas)
+ * Мария Григорова(fb_10156247747254175)
 
-User starts the game
-The Welcome screen allows picking one of the following options:
-  * Start New game - game walks player through picking the game options:
-    * Select Player Mode
-      - Single Player
-      - Dual Player
-    * Player picks category
-      - Questions from random categories
-      - Geography
-      - Tech
-      - etc...
-  * Ranklist
-    * Show ranklist of all players and their points
-  * Instructions
-  * Exit game
+## Features
+The Quizzzer application has the following features:
 
-### Single Player game
+ * Play Quizzzer trivia game in two modes:
+  - Single Mode - One player can play. The questions in the Single mode games have 4 possible answers, one of which is correct. Player enters their guess and the game evaluates if the answer is correct. Each correct answer gives 10 points to the player. At saving and exiting the game these points get added to the player's rank information.
+   * If the player likes a question, they can upvote it and increase their rating.
+  - Double Mode - Two players can play at the same time. The questions in the Double player game are with open answer. Each player enters their guess and whomever is closer to the correct answers receives the points. If both players are correct, then they both get 10 points. At saving and exiting the game, the points for both players get added to their rank information.
+* Pick the category of the game questions - You select to play with questions of a specific category or answer to random questions from all categories in the game.
+* See Players Ranklist
+* See How to Play instructions
+* Add new question
+* List all available questions
+* Switch into Administrative mode and:
+ - Punish player by deducting points from their total
+ - Delete player from the stored player list
+ 
 
-game asks question
-      * Show username, show player type, show badges, show Total Points for Player
-    * Question
-      * Show question's rating, show how many points the question gives
-    * Answers
-      * Show 4 possible answers
-    * Mark place where player enters their answer.
-      Press ‘h’ for hint?
+## Veteran Players
 
-Player picks answer and enters it
-    * game evaluates answer
-      * If answer correct
-         Player receives points
-      * If answer is incorrect
-         Show info on correct answer
-      * if next question ? 
-              Next question : 
-              games ends
+If a player has accumulated 300 points already, they become a Veteran player and gain the following priviliges:
+ * Add new questions
+ * Answer questions from a Bonus category
 
-#### Single Player game Ends
-* Show and Save player rank
-* show Congrats & ranks & points
-          *   Result summary - best know topic and least know topic
-* Evaluate if player receives any badges. 
- *  E.g: if they answer questions correctly in a row or 
- *  if they rock in certain category
-
-
-### Dual Player game
-
-game asks question
-     * Show username, show player type, show badges, show Total Points for Player
-   * Question
-    *   Show question's rating, show how many points the question gives
-   *  Prompt Player 1 to enter answer
-    *  Player 1 enters answer
-    * Prompt Player 2 to enter answer
-     * Player 2 enters answer
-
-game evaluates answer
-   * Whomever is closer to the correct answer receives the question points.
-     * If both are correct, then both players receive points.
-     * If both are equally incorrect, nobody gets the points
-
-#### Dual Player game Ends
-* Show who is the winner
-* show Congrats & ranks & points
-    *        Result summary - best know topic and least know topic
-* Evaluate if any player receives badges. 
-* E.g: if they answer questions correctly in a row or 
-* if they rock in certain category
-
-#### Administrative View
-* Administrators create questions 
-* Add Question
-
--------------------------------------------
-## Not Doing:
-
-* Add Question Categories
-* Delete users
-
+----
+Enjoy playing Quizzzer!
