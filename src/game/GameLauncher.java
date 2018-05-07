@@ -1,15 +1,10 @@
 package game;
 
 import utilities.Display;
-import utilities.AppendingObjectOutputStream;
-
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.util.Scanner;
 
 import users.*;
+import utilities.PlayerNotFoundException;
 
 public class GameLauncher {
     private Scanner in;
@@ -74,15 +69,24 @@ public class GameLauncher {
                 			String playerToPunish = in.nextLine();
                 			System.out.print("> Points to deduct: ");
                 			int pointsToDeduct = Integer.parseInt(in.nextLine());
-                			
-                			admin.punishPlayer(playerToPunish, pointsToDeduct, Game.players);
+
+                			try {
+                                admin.punishPlayer(playerToPunish, pointsToDeduct, Game.players);
+                            } catch (PlayerNotFoundException e){
+                                System.out.println("> Player " + playerToPunish + " does not exist.");
+                            }
+
                 			break;
                 		case 2:
                 			System.out.print("> Player name: ");
                 			String playerToBan = in.nextLine();
-                			
-                			admin.deletePlayer(playerToBan, Game.players);
-                			break;
+
+                            try {
+                                admin.deletePlayer(playerToBan, Game.players);
+                            } catch (PlayerNotFoundException e) {
+                                System.out.println("> Player " + playerToBan + " does not exist.");
+                            }
+                            break;
                 		}
                 	} else {
                 		System.out.println("You have to be Administrator to access the Admin Panel.");
