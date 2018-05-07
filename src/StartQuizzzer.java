@@ -282,8 +282,109 @@ public class StartQuizzzer {
         list.add(q72);
         list.add(q73);
         list.add(q74);
-
-
+        
+        Question q75 = new OpenQuestion("How much time does it take for a sunlight to come to the Earth in minutes?", 8, QuestionCategory.TECH);
+        Question q76 = new OpenQuestion("Mercury is the first planet starting from the sun. Which is the Earth", 3, QuestionCategory.TECH);
+        Question q77 = new OpenQuestion("How old is the Java language(years)?", 22, QuestionCategory.TECH);
+        Question q78 = new OpenQuestion("When was the first version of Windows 1.0 released?", 1985, QuestionCategory.TECH);
+        Question q79 = new OpenQuestion("How old is the universe in bllns of years?", 14, QuestionCategory.TECH);
+        
+        list.add(q75);
+        list.add(q76);
+        list.add(q77);
+        list.add(q78);
+        list.add(q79);
+        		
+        Question q80 = new ClosedQuestion("Contemporary computer architecture has had its structure made by", QuestionCategory.BONUS,
+        		"The Military",
+        		"Venture Capitalism",
+        		"Liberal democracy",
+        		"Lone geiuses", 1);
+        Question q81 = new ClosedQuestion("Who is the father of the Quantum Physics - a lifelong rival of Albert Einstein?", QuestionCategory.BONUS,
+        		"Werner Heisenberg",
+        		"Nikola Tesla",
+        		"Benjamin Franklin",
+        		"Neils Bohr", 4);
+        Question q82 = new ClosedQuestion("Who created the distributed revision control system Git?", QuestionCategory.BONUS,
+        		"Newton",
+        		"Steve Jobs",
+        		"Linus Torvalds",
+        		"Steve Wozniak", 3);
+        Question q83 = new ClosedQuestion("What is the core physics principle of the future quantum computer which can take the value of 1, 0 and both?", QuestionCategory.BONUS,
+        		"Particle superposition when a thing can be at two places at the same time",
+        		"Gravity",
+        		"Dark energy",
+        		"Electromagnetism", 1);
+        Question q84 = new ClosedQuestion("Petroleum(oil) is a raw material which is refined to crucial fuels. What is it formed from?", QuestionCategory.BONUS,
+        		"Zooplankton and algae",
+        		"Decayed dinosaur remains",
+        		"Molten ancient rocks",
+        		"Salts and crystals", 1);
+        Question q85 = new ClosedQuestion("How does the sun shine?", QuestionCategory.BONUS,
+        		"Nuclear fission",
+        		"Nuclear fusion",
+        		"Black hole gravity",
+        		"Strong nuclear force",2);
+        Question q86 = new ClosedQuestion("What is the contemporary definition of gravity?", QuestionCategory.BONUS,
+        		"Distortion of space-time",
+        		"Quantum entanglement",
+        		"Weak nuclear force",
+        		"Apples falling down", 1);
+        Question q87 = new ClosedQuestion("Can we slow down time?", QuestionCategory.BONUS,
+        		"No",
+        		"Yes",
+        		"Maybe",
+        		"Only speed it up", 2);		
+        Question q88 = new ClosedQuestion("Which is the biggest planet in the solar system?", QuestionCategory.BONUS,
+        		"Earth",
+        		"Jupiter",
+        		"Mercury",
+        		"Neptune", 2);
+        Question q89 = new ClosedQuestion("Who wrote java?", QuestionCategory.BONUS,
+        		"James Gosling",
+        		"Dennis Ritchie",
+        		"Brian Kernighan",
+        		"Boyko Borisov",1);
+        
+        list.add(q80);
+        list.add(q81);
+        list.add(q82);
+        list.add(q83);
+        list.add(q84);
+        list.add(q85);
+        list.add(q86);
+        list.add(q87);
+        list.add(q88);
+        list.add(q89);
+        
+        Question q90 = new OpenQuestion("Sundar Pichai is an indian programmer. He is the CEO of Google. Since when(year)?", 2015, QuestionCategory.BONUS);
+        Question q91 = new OpenQuestion("How far is the closest star from the sun in light years?", 5, QuestionCategory.BONUS);
+        Question q92 = new OpenQuestion("What is the speed of light km/s?", 300000, QuestionCategory.BONUS);
+        Question q93 = new OpenQuestion("How many zeroes are there in a google?", 100, QuestionCategory.BONUS);		
+        Question q94 = new OpenQuestion("Mobile phones use radio waves which are electromagnetic radiation thus they travel at the speed\r\n" + 
+        		"of light. So how many times can a phone signal go around the Earth's equator in a second?", 7, QuestionCategory.BONUS);		
+        Question q95 = new OpenQuestion("What is the diameter of the Lagre Hadron Collider in Cern in km", 27, QuestionCategory.BONUS);		
+        Question q96 = new OpenQuestion("The discovery of the twisted-ladder structure of deoxyribonucleic acid (DNA), by James Watson and Francis Crick was made in year?", 1953, QuestionCategory.BONUS);
+        Question q97 = new OpenQuestion("Beetlejuice is an orange star of the constellation Orion. It's 640 light years away from us. How old its image when we look at it(years)", 640, QuestionCategory.BONUS);
+        Question q98 = new OpenQuestion("The Great Red Spot is an absurdly gigantic storm on Jupiter. It is couple of times the size of the whole Earth. How long has it been raging on(years)?", 350, QuestionCategory.BONUS);
+        Question q99 = new OpenQuestion("How long can the Nile crocodile live up to(years)?", 100, QuestionCategory.BONUS);
+        
+        list.add(q90);
+        list.add(q91);
+        list.add(q92);
+        list.add(q93);
+        list.add(q94);
+        list.add(q95);
+        list.add(q96);
+        list.add(q97);
+        list.add(q98);
+        list.add(q99);
+        
+        
+        
+        
+        
+        
         for (Question quest : list) {
             o.writeObject(quest);
         }
