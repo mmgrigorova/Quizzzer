@@ -21,14 +21,17 @@ public class RandomQuestionList extends InGameQuestionList{
 				continue;
 			}
 			
+			
 			addedQuestions.add(questionIndex);
 			
 			if (gameMode == GameMode.SINGLE) {
-				if (allQuestions.get(questionIndex) instanceof ClosedQuestion) {
+				if (allQuestions.get(questionIndex) instanceof ClosedQuestion
+					&& !allQuestions.get(questionIndex).getCategory().equals(QuestionCategory.BONUS)) {
 					currentGameQuestions.add(allQuestions.get(questionIndex));
 				}
 			} else {
-				if (allQuestions.get(questionIndex) instanceof OpenQuestion) {
+				if (allQuestions.get(questionIndex) instanceof OpenQuestion
+					&& !allQuestions.get(questionIndex).getCategory().equals(QuestionCategory.BONUS)) {
 					currentGameQuestions.add(allQuestions.get(questionIndex));
 				}
 			}

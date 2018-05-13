@@ -380,10 +380,7 @@ public class StartQuizzzer {
         list.add(q98);
         list.add(q99);
         
-        
-        
-        
-        
+     
         
         for (Question quest : list) {
             o.writeObject(quest);
