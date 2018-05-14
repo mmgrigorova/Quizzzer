@@ -1,7 +1,7 @@
 package utilities;
 
 public class Display {
-    private static final int SCREEN_WIDTH = 140;
+    private static final int SCREEN_WIDTH = 145;
     private static final int START_PADDING = 8;
 
     public static void drawLine() {
