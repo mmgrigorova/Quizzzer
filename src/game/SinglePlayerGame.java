@@ -32,23 +32,19 @@ public class SinglePlayerGame extends Game {
             questionList = new CategoryQuestionsList(GameMode.SINGLE, questionCategory, Game.questions);
         }
         
-
         player = null;
         
-        for (Iterator<Player> it = players.iterator(); it.hasNext(); ) {
-        	Player p = it.next();
-			if (p.getUserName().equals(playerName)) {
-				player = p;
-				if (p.getPoints() > 300) {
-        			List<Badge> badges = p.getBadges();
-        			int points = p.getPoints();
-        			player = new VeteranPlayer(playerName, points, badges);
-        			it.remove();
-        			Game.players.add(player);
+        for (Player p : Game.players) {
+        	if (p.getUserName().equals(playerName)) {
+        		if (p instanceof VeteranPlayer) {
+        			player = (VeteranPlayer)p;
+        		} else {
+        			player = p;
         		}
-				break;
-			}
-		}   
+        		break;
+        	}
+        }
+      
         if (player == null) {
         	player = new Player(playerName);
         	Game.players.add(player);
@@ -132,6 +128,24 @@ public class SinglePlayerGame extends Game {
         addPointsToPlayer(player, gamePointsPlayer);
         Display.printFormatted(finalMessage);
         player.checkForBadges(gamePointsPlayer);
+        if (!(player instanceof VeteranPlayer)
+        	&& player.getPoints() > 300) {
+        	for (Iterator<Player> it = Game.players.iterator(); it.hasNext(); ) {
+            	Player p = it.next();
+            	if (p.getUserName().equals(player.getUserName())) {
+            		it.remove();
+            		String playerName = p.getUserName();
+            		List<Badge> badges = p.getBadges();
+        			int points = p.getPoints();
+        			p = new VeteranPlayer(playerName, points, badges);
+        			Game.players.add(p);
+        			Display.printFormatted("Congratulations! You've accumulated over 300 points"
+        					+ " and have become a Veteran. You may now access the Bonus"
+        					+ " category questions.");
+        			break;
+            	}
+        	}
+        }
         Display.skipLine();
         Display.drawLine("*");
     }

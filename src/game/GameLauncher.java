@@ -143,10 +143,10 @@ public class GameLauncher {
     private boolean isVeteran(String playerName) {
     	for (Player p : Game.players) {
     		if (p.getUserName().equals(playerName)) {
-    			if (!(p instanceof VeteranPlayer)) {
-            		return false;
-            	} else 
+    			if (p instanceof VeteranPlayer) {
             		return true;
+            	} else 
+            		return false;
     		}
     	}	
     	return false;

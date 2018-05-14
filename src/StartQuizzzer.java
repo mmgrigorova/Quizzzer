@@ -8,7 +8,7 @@ import game.*;
 
 public class StartQuizzzer {
     public static void main(String[] args) throws IOException {
-        //initializer();
+//        initializer();
         GameLauncher launcher = new GameLauncher();
         launcher.start();
     
@@ -311,7 +311,7 @@ public class StartQuizzzer {
         		"Linus Torvalds",
         		"Steve Wozniak", 3);
         Question q83 = new ClosedQuestion("What is the core physics principle of the future quantum computer which can take the value of 1, 0 and both?", QuestionCategory.BONUS,
-        		"Particle superposition when a thing can be at two places at the same time",
+        		"Particle superposition(a thing can be at two places at the same time)",
         		"Gravity",
         		"Dark energy",
         		"Electromagnetism", 1);
